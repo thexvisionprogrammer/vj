@@ -257,19 +257,57 @@ export const initialBirthdayData = {
     
     storySections: [
       {
-        heading: "1. Wo Din (The Vibe)",
-        text: "Ma मौसम bilkul suhana tha. Hawa mein ek aisi shanti aur mithas thi jaise kismat pehle se jaanti thi ki aaj kuch bohot khaas hone wala hai. Dil thoda sa nervous tha, par aane wale lamhon ka intezaar bohot pyaara tha."
+        heading: "1. Section 1 (Title baad mein decide karenge)",
+        text: "Mausam bilkul suhana tha. Hawa mein ek aisi shanti aur mithas thi jaise kismat pehle se jaanti thi ki aaj kuch bohot khaas hone wala hai. Dil thoda sa nervous tha, par aane wale lamhon ka intezaar bohot pyaara tha.",
+        imageUrl: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80"
       },
       {
-        heading: "2. Pehli Nazar (The Look)",
-        text: "Jab tumne pehli baar mud kar dekha, mera waqt jaise wahin ruk gaya. Tumhari wo innocent smile, tumhara stylish tareeka, aur tumhari aankhon ka teaj—mujhse ek second ke liye bhi nazar hatayi nahi gayi."
+        heading: "2. Section 2 (Title baad mein decide karenge)",
+        text: "Jab tumne pehli baar mud kar dekha, mera waqt jaise wahin ruk gaya. Tumhari wo innocent smile, tumhara stylish tareeka, aur tumhari aankhon ka teaj—mujhse ek second ke liye bhi nazar hatayi nahi gayi.",
+        imageUrl: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80"
       },
       {
-        heading: "3. Pehli Baat (The Icebreaker)",
-        text: "Hamari wo pehli baat-cheet! Shuruat chhote se hello se hui thi, par do hi minute mein lagne laga jaise hum ek dusre ko barson se jaante hain. Tumhari baaton mein itna apna-pan tha ki dil ne wahin faisla kar liya tha."
+        heading: "3. Section 3 (Title baad mein decide karenge)",
+        text: "Hamari wo pehli baat-cheet! Shuruat chhote se hello se hui thi, par do hi minute mein lagne laga jaise hum ek dusre ko barson se jaante hain. Tumhari baaton mein itna apna-pan tha ki dil ne wahin faisla kar liya tha.",
+        imageUrl: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        heading: "4. Section 4 (Title baad mein decide karenge)",
+        text: "Wo pehli hassi aur wo cute moments jab hum dono ek dusre ko dekh kar bina kisi waja ke muskura rahe the. Kuch rishte shabdon ke mohtaj nahi hote, bas ehsaas hi kafi hota hai.",
+        imageUrl: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        heading: "5. Section 5 (Title baad mein decide karenge)",
+        text: "Chai ki chuskiyon ke saath baatein deep hoti gayi. Tumhara life ko dekhne ka nazariya aur tumhari baaton ki mehak ne dil ko poori tarah jeet liya tha.",
+        imageUrl: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        heading: "6. Section 6 (Title baad mein decide karenge)",
+        text: "Waqt ka pata hi nahi chala. Ghante seconds ki tarah beet gaye. Lag raha tha kaash ye sham kabhi khatam hi na ho aur waqt yahi ruk jaye.",
+        imageUrl: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        heading: "7. Section 7 (Title baad mein decide karenge)",
+        text: "Ek doosre ke sapne, khwahishein aur favorite cheezon ki baatein. Pata chala ki hamari kitni saari pasand aur baatein aapas mein milti hain.",
+        imageUrl: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        heading: "8. Section 8 (Title baad mein decide karenge)",
+        text: "Alvida kehte waqt dil keh raha tha ki ye bas ek nayi shuruat hai. Wo pehli mulakat ab har din ek nayi yaad ban kar mehakti hai.",
+        imageUrl: "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        heading: "9. Section 9 (Title baad mein decide karenge)",
+        text: "Ghar laut-te waqt bhi bas tumhara hi khayal tha. Dimaag mein tumhari baatein aur dil mein ek anokhi khushi gunj rahi thi.",
+        imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        heading: "10. Section 10 (Title baad mein decide karenge)",
+        text: "Aaj jab peeche mud kar dekhta hoon, toh samajh aata hai ki wo mulakat ek ittefaq nahi, balki kismat ka sabse haseen tohfa tha.",
+        imageUrl: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80"
       }
     ],
 
-    endingNote: "...aur us ek mulakat ne meri poori kitab ki kahani hi badal di. Happy Birthday V, my forever story! 📖💖"
+    endingNote: "...aur is khoobsurat dastan ke har panno mein bas tumhara hi naam likha hai. Happy Birthday V, my forever story! 📖💖"
   }
 };
