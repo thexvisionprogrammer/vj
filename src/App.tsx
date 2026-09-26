@@ -31,7 +31,7 @@ export const App: React.FC = () => {
   const pageTitles = [
     "The Grand Welcome",
     "My Voice for You",
-    "All About 'V'",
+    "All About VijayLaxmi (Cutu)",
     "The Mountain Diaries",
     "The 'Kali Activa' Rides",
     "Driving Dates & Playlists",

@@ -31,8 +31,8 @@ export interface BucketItem {
 }
 
 export const initialBirthdayData = {
-  partnerName: "V",
-  fullName: "My Special Someone 'V'",
+  partnerName: "VijayLaxmi (Cutu)",
+  fullName: "VijayLaxmi (Cutu)",
   birthdayDate: "September 7",
   tagline: "To the girl who turned my world into pure magic ✨",
   
@@ -47,7 +47,7 @@ export const initialBirthdayData = {
   voiceNoteDuration: "1:45",
   voiceNoteMessage: "I built this entire website just for you to remind you how deeply loved, valued, and celebrated you are every single day. Press play above to listen to my voice note!",
 
-  // Page 3: All About V
+  // Page 3: All About VijayLaxmi (Cutu)
   aboutV: {
     title: "All About My Favorite Person",
     description: "Your smile brightens the darkest days, your grace leaves me speechless, and your kindness inspires me endlessly.",
@@ -208,24 +208,24 @@ export const initialBirthdayData = {
     { id: 7, title: "7. You Believe in Me", iconName: "Star", description: "Even when I doubt myself, your strong faith in me gives me the courage to conquer anything." },
     { id: 8, title: "8. Foodie Companion", iconName: "Utensils", description: "Sharing midnight ice creams, testing weird recipes, and food dates with you are pure happiness." },
     { id: 9, title: "9. Endless Kindness", iconName: "Sun", description: "The respect and tenderness with which you treat animals, strangers, and family shows how beautiful your soul is." },
-    { id: 10, title: "10. You Are Simply 'V'", iconName: "Award", description: "Because out of 8 billion people on Earth, there is only ONE of you, and you complete my life in every single way." }
+    { id: 10, title: "10. You Are Simply VijayLaxmi (Cutu)", iconName: "Award", description: "Because out of 8 billion people on Earth, there is only ONE of you, Cutu, and you complete my life in every single way." }
   ],
 
   // Page 10: Secret Letters
   secretLetters: [
     {
       id: 1,
-      title: "Dear V: Tum Meri Zindagi Ka Sabse Sundar Tohfa Ho",
+      title: "Dear VijayLaxmi: Tum Meri Zindagi Ka Sabse Sundar Tohfa Ho",
       date: "September 7, 2026",
       language: "Hindi" as const,
-      content: `Pyaari V,\n\nAaj tumhare is khaas din par main bas itna kehna chahta hoon ki tum meri zindagi ka sabse khoobsurat hissa ho. Jab se tum aayi ho, har mausam romantic aur har din ek naye jashn jaisa lagta hai.\n\nKali Activa ki rides se lekar Shinkula Top ke thande pahado tak, har rasta tumhare saath ek haseen safar ban gaya. Tumhari muskurahat meri sabse badi taakat hai. Happy Birthday, my love! ❤️`
+      content: `Pyaari VijayLaxmi (Cutu),\n\nAaj tumhare is khaas din par main bas itna kehna chahta hoon ki tum meri zindagi ka sabse khoobsurat hissa ho. Jab se tum aayi ho, har mausam romantic aur har din ek naye jashn jaisa lagta hai.\n\nKali Activa ki rides se lekar Shinkula Top ke thande pahado tak, har rasta tumhare saath ek haseen safar ban gaya. Tumhari muskurahat meri sabse badi taakat hai. Happy Birthday, my Cutu! ❤️`
     },
     {
       id: 2,
       title: "To My Forever Partner In Crime",
       date: "Birthday Special Note",
       language: "English" as const,
-      content: `My Dearest V,\n\nHappy Birthday! Thank you for being my anchor, my favorite photographer, my car date DJ, and my best friend. Looking back at all our memories—our food experiments, driving trips, and endless laughter—I realize how blessed I am to walk through life with you.\n\nMay this new year bring you infinite joy, success, and endless laughter. I promise to hold your hand through every high and low. Yours forever!`
+      content: `My Dearest VijayLaxmi (Cutu),\n\nHappy Birthday! Thank you for being my anchor, my favorite photographer, my car date DJ, and my best friend. Looking back at all our memories—our food experiments, driving trips, and endless laughter—I realize how blessed I am to walk through life with you.\n\nMay this new year bring you infinite joy, success, and endless laughter. I promise to hold your hand through every high and low. Yours forever!`
     }
   ],
 
@@ -244,7 +244,7 @@ export const initialBirthdayData = {
     title: "Make a Wish & Blow The Candles! 🕯️🎂",
     instructions: "Click on the candles or blow into your microphone to extinguish the flames!",
     videoWishUrl: "https://assets.mixkit.co/videos/preview/mixkit-hands-holding-a-sparkler-firework-41604-large.mp4",
-    finalMessage: "Happy Birthday V! May all your secret wishes come true today and forever! ❤️🎉"
+    finalMessage: "Happy Birthday VijayLaxmi (Cutu)! May all your secret wishes come true today and forever! ❤️🎉"
   },
 
   // Page 13: Meri Kitab: Ek Mulakat
@@ -308,6 +308,6 @@ export const initialBirthdayData = {
       }
     ],
 
-    endingNote: "...aur is khoobsurat dastan ke har panno mein bas tumhara hi naam likha hai. Happy Birthday V, my forever story! 📖💖"
+    endingNote: "...aur is khoobsurat dastan ke har panno mein bas tumhara hi naam likha hai. Happy Birthday VijayLaxmi (Cutu), my forever story! 📖💖"
   }
 };
