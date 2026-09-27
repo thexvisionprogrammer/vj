@@ -32,7 +32,7 @@ export const App: React.FC = () => {
     "The Grand Welcome",
     "My Voice for You",
     "All About VijayLaxmi (Cutu) ❤️",
-    "The Mountain Diaries",
+    "Our Purest Decision to Kaichi Dham",
     "The 'Kali Activa' Rides",
     "Driving Dates & Playlists",
     "Food & Flavors",

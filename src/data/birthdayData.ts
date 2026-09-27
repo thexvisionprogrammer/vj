@@ -53,26 +53,50 @@ export const initialBirthdayData = {
     description: "Your smile brightens the darkest days, your grace leaves me speechless, and your kindness inspires me endlessly.",
     photos: [
       {
-        url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
+        url: "/photos/photo9.jpeg",
         caption: "That beaming smile of yours 😊",
         tag: "Cutest Smile"
       },
       {
-        url: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80",
+        url: "/photos/photo8.jpeg",
         caption: "Effortlessly elegant as always ✨",
         tag: "Best Outfit"
       },
       {
-        url: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80",
+        url: "/photos/photo6.jpeg",
         caption: "Candid laughters we treasure 💖",
         tag: "Unfiltered Joy"
       },
       {
-        url: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80",
+        url: "/photos/photo7.jpeg",
         caption: "Your glowing positivity 🌟",
         tag: "Pure Soul"
       }
     ],
+    knowYou: {
+      title: "Mujhe JAnna hai tumhe (i want to know you)",
+      subtitle: "Har choti baat tumhare baare mein mere dil ke kareeb hai ✨",
+      audioUrl: "/audio/knowyou.mpeg",
+      audioTitle: "Audio Note for Cutu ❤️",
+      audioDuration: "2:15",
+      photos: [
+        {
+          url: "/photos/photo2.jpeg",
+          caption: "Your beautiful aesthetic vibe ✨",
+          tag: "Fav Look"
+        },
+        {
+          url: "/photos/photo3.jpeg",
+          caption: "That charming smile that steals hearts 😊",
+          tag: "Sweet Smile"
+        },
+        {
+          url: "/photos/photo4.jpeg",
+          caption: "Unfiltered joy and pure moments 💖",
+          tag: "Pure Joy"
+        }
+      ]
+    },
     compliments: [
       { icon: "Sparkles", text: "The way your eyes light up when you laugh" },
       { icon: "Heart", text: "Your unconditional empathy for everyone around you" },
@@ -81,27 +105,44 @@ export const initialBirthdayData = {
     ]
   },
 
-  // Page 4: Mountain Diaries
+  // Page 4: Kainchi Dham Trip
   mountainDiaries: {
-    title: "The Mountain Diaries 🏔️",
-    subtitle: "Our Highest Highs: Manali & Shinkula Top",
-    heroImage: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80",
+    title: "Our Purest Decision to Kaichi Dham ✨",
+    subtitle: "A divine trip filled with peace, blessings & timeless memories",
+    heroImage: "/photos/photo6.jpeg",
     videoLoopUrl: "https://assets.mixkit.co/videos/preview/mixkit-snowy-mountain-landscape-3406-large.mp4",
-    altitudeText: "16,580 FT ABOVE SEA LEVEL",
+    altitudeText: "NEEM KAROLI BABA ASHRAM, NAINITAL 🕉️",
+    audioUrl: "/audio/Kaichidham.mpeg",
+    audioTitle: "Kaichi Dham Audio Note & Divine Memories 🕉️",
+    audioDuration: "2:45",
     memories: [
       {
-        title: "Chilling in Manali's Snow",
-        location: "Manali, Himachal Pradesh",
-        date: "Snow Trip",
-        imageUrl: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80",
-        note: "Freezing cold outside, but holding your hand kept me warm the entire journey."
+        title: "Darshan at Neem Karoli Baba Ashram 🙏",
+        location: "Kainchi Dham, Uttarakhand",
+        date: "Divine Yatra",
+        imageUrl: "/photos/photo13.jpeg",
+        note: "Standing together in front of Maharaj-ji, taking blessings for our togetherness. That serene peace on your face is etched in my heart forever."
       },
       {
-        title: "Conquering Shinkula Pass",
-        location: "Shinkula Top (16,580 ft)",
-        date: "High Altitude Peak",
-        imageUrl: "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=800&q=80",
-        note: "The wind was roaring, the snow was blinding, but watching you smile at the peak was priceless."
+        title: "Peaceful Moments & Valley Breezes 🌸",
+        location: "Golu devi temple",
+        date: "Spiritual Journey",
+        imageUrl: "/photos/photo9.jpeg",
+        note: "Holding your hand in the tranquil morning breeze of Kainchi Dham, knowing our bond is blessed with love, pure energy, and grace."
+      },
+      {
+        title: "Evening Aarti & Divine Peace 🪔",
+        location: "Siddhart Ashram",
+        date: "Evening Aarti",
+        imageUrl: "/photos/photo11.jpeg",
+        note: "The sound of temple bells and evening aarti surrounded us in pure bliss as we prayed together for our lifelong happiness."
+      },
+      {
+        title: "Our Written Prayer to god🌿",
+        location: "Goludevi Temple",
+        date: "Nature Walk",
+        imageUrl: "/photos/photo10.jpeg",
+        note: "Wandering through the green mountains after visiting Kainchi Dham, holding your hand with a calm and deeply grateful heart."
       }
     ]
   },
@@ -201,7 +242,7 @@ export const initialBirthdayData = {
   reasons: [
     { id: 1, title: "1. Your Electric Smile", iconName: "Smile", description: "The moment you smile, every worry in my mind melts away instantly. It's my absolute favorite sight in the universe." },
     { id: 2, title: "2. Your Caring Soul", iconName: "Heart", description: "You notice the little things about people and care so deeply. Your warmth makes the world a kinder place." },
-    { id: 3, title: "3. Mountain Adventure Partner", iconName: "Compass", description: "From freezing at 16,580 ft on Shinkula Top to riding the Kali Activa in rain, you are down for any adventure with me." },
+    { id: 3, title: "3. Spiritual & Adventure Partner", iconName: "Compass", description: "From taking blessings together at Kainchi Dham to riding the Kali Activa in rain, you are down for any beautiful journey with me." },
     { id: 4, title: "4. The Way You Laugh", iconName: "Sparkles", description: "Your genuine, uninhibited belly laugh when I say something silly is the sweetest sound ever recorded." },
     { id: 5, title: "5. How Stylish You Are", iconName: "Crown", description: "Whether in ethnic wear, hoodies, or party outfits, you turn heads everywhere with your effortless grace." },
     { id: 6, title: "6. Our Late Night Talks", iconName: "Moon", description: "Talking to you at 2 AM about our dreams, fears, and random nonsense feels like talking to my soulmate." },
@@ -218,7 +259,7 @@ export const initialBirthdayData = {
       title: "Dear VijayLaxmi (Cutu) ❤️: Tum Meri Zindagi Ka Sabse Sundar Tohfa Ho",
       date: "September 7, 2026",
       language: "Hindi" as const,
-      content: `Pyaari VijayLaxmi (Cutu) ❤️,\n\nAaj tumhare is khaas din par main bas itna kehna chahta hoon ki tum meri zindagi ka sabse khoobsurat hissa ho. Jab se tum aayi ho, har mausam romantic aur har din ek naye jashn jaisa lagta hai.\n\nKali Activa ki rides se lekar Shinkula Top ke thande pahado tak, har rasta tumhare saath ek haseen safar ban gaya. Tumhari muskurahat meri sabse badi taakat hai. Happy Birthday, my Cutu! ❤️`
+      content: `Pyaari VijayLaxmi (Cutu) ❤️,\n\nAaj tumhare is khaas din par main bas itna kehna chahta hoon ki tum meri zindagi ka sabse khoobsurat hissa ho. Jab se tum aayi ho, har mausam romantic aur har din ek naye jashn jaisa lagta hai.\n\nKali Activa ki rides se lekar Kainchi Dham ki khoobsurat yatra tak, har rasta tumhare saath ek haseen safar ban gaya. Tumhari muskurahat meri sabse badi taakat hai. Happy Birthday, my Cutu! ❤️`
     },
     {
       id: 2,
@@ -250,7 +291,7 @@ export const initialBirthdayData = {
   // Page 13: Meri Kitab: Ek Mulakat
   meriKitab: {
     bgMusicUrl: "/audio/humarimulakat.mpeg",
-    firstPhotoUrl: "/photos/cover1.jpeg",
+    firstPhotoUrl: "/photos/photo2.jpeg",
     firstMeetingLocation: "Humari Mulakat Maa Kalaka Ji ke aashirwad se suru hui ❤️! ",
 
     intro: "Kuch kahaniyan aisi hoti hain jo waqt ke sath purani nahi hoti, bas unke panno ki khushbu aur gehri ho jati hai. Meri zindagi ki kitaab ka sabse khubsurat panna wahi tha, jab meri tumse wo pehli mulakat hui thi... Us din, us ek pal mein, mujhe ye ehsaas tak nahi tha ki main apne aane wale sabse haseen kal se mil raha hoon. Tumse milne ke baad mujhe samajh aaya ki meri ye kahani tumhare bina kitni adhoori thi. Tumhare aate hi, zindagi ke in khali panno par jaise pyaar ki siyahi se koi jaadu sa likh gaya ho. Tumhari wo pyari si muskaan, tumhari baatein, aur tumhara mere kareeb hona—ye sab ab meri aadat nahi, meri jeene ki wajah ban chuke hain.",
@@ -259,57 +300,90 @@ export const initialBirthdayData = {
       {
         heading: "1. The Movie Date and Begining of our Story.",
         text: "Humari First date or movie so Vj mai bhot exited tha humari first date Ko Lekr its 1 Aug and its Girlfriend's day , mai bhot acche se janta tha or isi din mne ye date bhi chuni, jab mai tumhe pickup krne aaya vj to mai bhot nervous tha and jab tum samne aai to ek dum pari lgri thi beautiful and slaying up photo mai dekho, i know ki movie tumhe pasand bhi nhi aai but tumhara sath rehna hi mere liye impt. tha , And During Movie when i ask to hold your hand and you allowed it wo meri life ka bhot impt moment tha, uske bad we had your fav MOMO and there i gave you my First Gift to you That Floral Neckles or jab mne use tumhe apne hath se pehnaya na mai aasman p tha VJ or tumhe dil de betha.",
+        audioUrl: "/audio/note1.mpeg", // Chapter 1 audio file path (e.g. "/audio/movie-date-audio.mp3")
         imageUrls: [
           "/photos/movie.jpeg"
-          // Multiple photos lagane ke liye array me aur photos ke paths add karein:
-          // "/photos/movie2.jpeg",
-          // "/photos/movie3.jpeg"
         ]
       },
       {
-        heading: "2. Section 2 (Title baad mein decide karenge)",
-        text: "Jab tumne pehli baar mud kar dekha, mera waqt jaise wahin ruk gaya. Tumhari wo innocent smile, tumhara stylish tareeka, aur tumhari aankhon ka teaj—mujhse ek second ke liye bhi nazar hatayi nahi gayi.",
-        imageUrl: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80"
+        heading: "Ma Kalka Ji ke Darshan",
+        text: "Vj This was our second trip and we planed for Kalkaji you know right on 15 Th Aug, i asked you to just a long drive and on morning you surprise me by saying 'Rahul hum kalka ji ja rahe h' and ye bat mere bhi man mai thi cutu, ki mai tumse bolu ki kalkaji mujhe bhi le chlo , or jab tum ready hoke aai to by god You are Looking Gorgeous or upr se mere gift kie hue jhumke and chudiya pehni thi mera to dil hi aagya tha, phir jab hum udhr pahuche and tumhare sath us road pe chalna line mai lagna 3-4 ghante m darshan krna best memory for me VJ, you know best past was jab wo ladki tumhe dekh kr tumhari nazar utarti h , its awsome pta h cutu m tumhari hair fragrence ka fan usi din hogya i litrally enjoy that fragrance for straignt 4 hours and u know mne tumhe 2-3 bar head p kis bhi kia, baki mandir m tumhe bheed se protect krna mere liye memorable tha, sabse imp bat vj, humne jo shivji p jal chadhaya and nandi ko wish bolo it gave me goosebumps, ye mera best Experience tha kalkaji ka, In future i hope hum harbar ase hi jaye. or Cutu best part was jab mne gadi roki or Tumhare balo m flowers Lagaye and tumhe ek flower ki ring pehnai wo mere liye best moment tha and first time i Kiss you ",
+        audioUrl: "/audio/note1.mpeg", // Chapter 2 audio file path
+        imageUrls: [
+          "/photos/photo2.jpeg",
+          "/photos/photo3.jpeg",
+          "/videos/video1.mp4"
+        ]
       },
       {
-        heading: "3. Section 3 (Title baad mein decide karenge)",
-        text: "Hamari wo pehli baat-cheet! Shuruat chhote se hello se hui thi, par do hi minute mein lagne laga jaise hum ek dusre ko barson se jaante hain. Tumhari baaton mein itna apna-pan tha ki dil ne wahin faisla kar liya tha.",
-        imageUrl: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80"
+        heading: "Humari Random Rides Date and friend intro....",
+        text: "My Dear Cutu humari ye random date itni thrilling thi ki ye mere mind mai abhi bhi refresh h , humne itne fun and msti ki thi, tu aaj bhi jase first time date krne ja rhi thi same rhi , or tu kitni pretty lag rhi thi , and you know ye date humne meri friends ki wajeh se ki, She wanted to meet you and know you personally and voila wo dono impress hogy tumse milke,when they know tumhara passion dream and goals they got impressed and find you mature, and vj fir jo humne bandaro k liye kele liye or unhe khilaye mai kehta hu one of the weierdest dating thing i have ever done but it was cute. and vj sabse important mne zindagi m pehli bar handmade roses banaye tumhare liye and that rose pin is my fav. thing i have ever made or iska idea bhi simple tha ki i want to gift you something jo kabhi kharab na ho. Fir humara jab deep discussion hua life ko lekr mujhe bhot accha lga , ki tum bhi wahi sochti ho life ko lekr jo m sochta hu. mai humesha tumhe kuch accha khilane ki kosish krta hu but us din sacchi chole kulche itne acche nhi the but promise ki tumhe bhukha nhi jane dunga, and this is like a commitment vj, i promise ,tumhe apne hast se pehli bite khilana is my love language beside this ye phool tumhare balo m lagane meri bhot si m se ek choti si khawish h. Ek Mn keta hai Subha uthu garden se sunder phool todu or ghr aake tumhare balo p lagau , uff ye mere menhenge - mehenge khwab. ",
+        audioUrl: "", // Chapter 3 audio file path
+        imageUrls: [
+          "/photos/photo4.jpeg",
+          "/videos/video6.mp4",
+          "/videos/video4.mp4",
+          "/videos/video3.mp4",
+          "/videos/video2.mp4",
+          "/videos/video5.mp4",
+          "/photos/photo5.jpeg"
+        ]
       },
       {
         heading: "4. Section 4 (Title baad mein decide karenge)",
         text: "Wo pehli hassi aur wo cute moments jab hum dono ek dusre ko dekh kar bina kisi waja ke muskura rahe the. Kuch rishte shabdon ke mohtaj nahi hote, bas ehsaas hi kafi hota hai.",
-        imageUrl: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80"
+        audioUrl: "", // Chapter 4 audio file path
+        imageUrls: [
+          "/photos/movie.jpeg"
+        ]
       },
       {
         heading: "5. Section 5 (Title baad mein decide karenge)",
         text: "Chai ki chuskiyon ke saath baatein deep hoti gayi. Tumhara life ko dekhne ka nazariya aur tumhari baaton ki mehak ne dil ko poori tarah jeet liya tha.",
-        imageUrl: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80"
+        audioUrl: "", // Chapter 5 audio file path
+        imageUrls: [
+          "/photos/movie.jpeg"
+        ]
       },
       {
         heading: "6. Section 6 (Title baad mein decide karenge)",
         text: "Waqt ka pata hi nahi chala. Ghante seconds ki tarah beet gaye. Lag raha tha kaash ye sham kabhi khatam hi na ho aur waqt yahi ruk jaye.",
-        imageUrl: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80"
+        audioUrl: "", // Chapter 6 audio file path
+        imageUrls: [
+          "/photos/movie.jpeg"
+        ]
       },
       {
         heading: "7. Section 7 (Title baad mein decide karenge)",
         text: "Ek doosre ke sapne, khwahishein aur favorite cheezon ki baatein. Pata chala ki hamari kitni saari pasand aur baatein aapas mein milti hain.",
-        imageUrl: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80"
+        audioUrl: "", // Chapter 7 audio file path
+        imageUrls: [
+          "/photos/movie.jpeg"
+        ]
       },
       {
         heading: "8. Section 8 (Title baad mein decide karenge)",
         text: "Alvida kehte waqt dil keh raha tha ki ye bas ek nayi shuruat hai. Wo pehli mulakat ab har din ek nayi yaad ban kar mehakti hai.",
-        imageUrl: "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80"
+        audioUrl: "", // Chapter 8 audio file path
+        imageUrls: [
+          "/photos/movie.jpeg"
+        ]
       },
       {
         heading: "9. Section 9 (Title baad mein decide karenge)",
         text: "Ghar laut-te waqt bhi bas tumhara hi khayal tha. Dimaag mein tumhari baatein aur dil mein ek anokhi khushi gunj rahi thi.",
-        imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80"
+        audioUrl: "", // Chapter 9 audio file path
+        imageUrls: [
+          "/photos/movie.jpeg"
+        ]
       },
       {
         heading: "10. Section 10 (Title baad mein decide karenge)",
         text: "Aaj jab peeche mud kar dekhta hoon, toh samajh aata hai ki wo mulakat ek ittefaq nahi, balki kismat ka sabse haseen tohfa tha.",
-        imageUrl: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80"
+        audioUrl: "", // Chapter 10 audio file path
+        imageUrls: [
+          "/photos/movie.jpeg"
+        ]
       }
     ],
 
