@@ -34,7 +34,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <Heart className="w-4 h-4 fill-white animate-pulse" />
             </div>
             <span className="font-serif-title font-bold text-lg bg-gradient-to-r from-pink-300 via-rose-200 to-amber-200 bg-clip-text text-transparent hidden sm:inline">
-              Happy Birthday VijayLaxmi (Cutu)
+              Happy Birthday VijayLaxmi (Cutu) ❤️
             </span>
           </div>
 

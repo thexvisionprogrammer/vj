@@ -31,21 +31,21 @@ export interface BucketItem {
 }
 
 export const initialBirthdayData = {
-  partnerName: "VijayLaxmi (Cutu)",
-  fullName: "VijayLaxmi (Cutu)",
+  partnerName: "VijayLaxmi (Cutu) ❤️",
+  fullName: "VijayLaxmi (Cutu) ❤️",
   birthdayDate: "September 7",
   tagline: "To the girl who turned my world into pure magic ✨",
-  
+
   // Page 1: Hero
   heroPhoto: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1600&q=80",
   bgAudioUrl: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3", // Romantic soothing track
   bgSongTitle: "Dooron Dooron (Soothing Romantic Track)",
 
   // Page 2: Voice Note
-  voiceNoteAudioUrl: "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a70514.mp3?filename=sweet-romantic-melody-10878.mp3",
+  voiceNoteAudioUrl: "audio/bdaynote.mpeg",
   voiceNoteTitle: "A Message From My Heart ❤️",
   voiceNoteDuration: "1:45",
-  voiceNoteMessage: "I built this entire website just for you to remind you how deeply loved, valued, and celebrated you are every single day. Press play above to listen to my voice note!",
+  voiceNoteMessage: "Agar tum soch rahi ho ki maine ye sab kyun kiya—tumhare liye khana banana, drives ki planning, apna favorite gaana lagana, aur ye itna lamba sa note likhna... toh sach bataun? Isme mera ek chhota sa swarth (selfishness) chhipa hai.Main bohot laalchi hoon jab baat tumhari aati hai. Mujhe bas tumhare chehre ki wo sukoon wali smile dekhni thi jab tum ye sab dekhogi. Mujhe tumhari aankhon mein wo chamak dekhni thi jo mujhe batati hai ki main tumhare liye kya maayne rakhta hoon. Tumne meri aam si zindagi mein itna sukoon bhar diya hai ki ab mera dil karta hai main apni saari umar sirf is koshish mein nikaal doon ki main tumhe kaise aur zyada khush rakh sakun. Ye sab jo maine kiya, ye bas ek zariya tha tumhe ye ehsaas dilane ka ki tum us pyaar ko deserve karti ho jisme koi tumhe is tarah chahe, jaise tum is duniya ki sabse keemti aur aakhri cheez ho",
 
   // Page 3: All About VijayLaxmi (Cutu)
   aboutV: {
@@ -208,24 +208,24 @@ export const initialBirthdayData = {
     { id: 7, title: "7. You Believe in Me", iconName: "Star", description: "Even when I doubt myself, your strong faith in me gives me the courage to conquer anything." },
     { id: 8, title: "8. Foodie Companion", iconName: "Utensils", description: "Sharing midnight ice creams, testing weird recipes, and food dates with you are pure happiness." },
     { id: 9, title: "9. Endless Kindness", iconName: "Sun", description: "The respect and tenderness with which you treat animals, strangers, and family shows how beautiful your soul is." },
-    { id: 10, title: "10. You Are Simply VijayLaxmi (Cutu)", iconName: "Award", description: "Because out of 8 billion people on Earth, there is only ONE of you, Cutu, and you complete my life in every single way." }
+    { id: 10, title: "10. You Are Simply VijayLaxmi (Cutu) ❤️", iconName: "Award", description: "Because out of 8 billion people on Earth, there is only ONE of you, Cutu, and you complete my life in every single way." }
   ],
 
   // Page 10: Secret Letters
   secretLetters: [
     {
       id: 1,
-      title: "Dear VijayLaxmi: Tum Meri Zindagi Ka Sabse Sundar Tohfa Ho",
+      title: "Dear VijayLaxmi (Cutu) ❤️: Tum Meri Zindagi Ka Sabse Sundar Tohfa Ho",
       date: "September 7, 2026",
       language: "Hindi" as const,
-      content: `Pyaari VijayLaxmi (Cutu),\n\nAaj tumhare is khaas din par main bas itna kehna chahta hoon ki tum meri zindagi ka sabse khoobsurat hissa ho. Jab se tum aayi ho, har mausam romantic aur har din ek naye jashn jaisa lagta hai.\n\nKali Activa ki rides se lekar Shinkula Top ke thande pahado tak, har rasta tumhare saath ek haseen safar ban gaya. Tumhari muskurahat meri sabse badi taakat hai. Happy Birthday, my Cutu! ❤️`
+      content: `Pyaari VijayLaxmi (Cutu) ❤️,\n\nAaj tumhare is khaas din par main bas itna kehna chahta hoon ki tum meri zindagi ka sabse khoobsurat hissa ho. Jab se tum aayi ho, har mausam romantic aur har din ek naye jashn jaisa lagta hai.\n\nKali Activa ki rides se lekar Shinkula Top ke thande pahado tak, har rasta tumhare saath ek haseen safar ban gaya. Tumhari muskurahat meri sabse badi taakat hai. Happy Birthday, my Cutu! ❤️`
     },
     {
       id: 2,
       title: "To My Forever Partner In Crime",
       date: "Birthday Special Note",
       language: "English" as const,
-      content: `My Dearest VijayLaxmi (Cutu),\n\nHappy Birthday! Thank you for being my anchor, my favorite photographer, my car date DJ, and my best friend. Looking back at all our memories—our food experiments, driving trips, and endless laughter—I realize how blessed I am to walk through life with you.\n\nMay this new year bring you infinite joy, success, and endless laughter. I promise to hold your hand through every high and low. Yours forever!`
+      content: `My Dearest VijayLaxmi (Cutu) ❤️,\n\nHappy Birthday! Thank you for being my anchor, my favorite photographer, my car date DJ, and my best friend. Looking back at all our memories—our food experiments, driving trips, and endless laughter—I realize how blessed I am to walk through life with you.\n\nMay this new year bring you infinite joy, success, and endless laughter. I promise to hold your hand through every high and low. Yours forever!`
     }
   ],
 
@@ -244,22 +244,22 @@ export const initialBirthdayData = {
     title: "Make a Wish & Blow The Candles! 🕯️🎂",
     instructions: "Click on the candles or blow into your microphone to extinguish the flames!",
     videoWishUrl: "https://assets.mixkit.co/videos/preview/mixkit-hands-holding-a-sparkler-firework-41604-large.mp4",
-    finalMessage: "Happy Birthday VijayLaxmi (Cutu)! May all your secret wishes come true today and forever! ❤️🎉"
+    finalMessage: "Happy Birthday VijayLaxmi (Cutu) ❤️! May all your secret wishes come true today and forever! ❤️🎉"
   },
 
   // Page 13: Meri Kitab: Ek Mulakat
   meriKitab: {
-    bgMusicUrl: "https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3?filename=soft-romantic-piano-10651.mp3",
-    firstPhotoUrl: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1000&q=80",
-    firstMeetingLocation: "That Unforgettable Café Where It All Began",
-    
-    intro: "Kuch kahaniyan aisi hoti hain jo waqt ke sath purani nahi hoti, bas unke panno ki khushbu aur gehri ho jati hai. Meri zindagi ki kitaab ka sabse khubsurat panna wahi tha, jab meri tumse wo pehli mulakat hui thi...",
-    
+    bgMusicUrl: "/audio/humarimulakat.mpeg",
+    firstPhotoUrl: "/photos/cover1.jpeg",
+    firstMeetingLocation: "Humari Mulakat Maa Kalaka Ji ke aashirwad se suru hui ❤️! ",
+
+    intro: "Kuch kahaniyan aisi hoti hain jo waqt ke sath purani nahi hoti, bas unke panno ki khushbu aur gehri ho jati hai. Meri zindagi ki kitaab ka sabse khubsurat panna wahi tha, jab meri tumse wo pehli mulakat hui thi... Us din, us ek pal mein, mujhe ye ehsaas tak nahi tha ki main apne aane wale sabse haseen kal se mil raha hoon. Tumse milne ke baad mujhe samajh aaya ki meri ye kahani tumhare bina kitni adhoori thi. Tumhare aate hi, zindagi ke in khali panno par jaise pyaar ki siyahi se koi jaadu sa likh gaya ho. Tumhari wo pyari si muskaan, tumhari baatein, aur tumhara mere kareeb hona—ye sab ab meri aadat nahi, meri jeene ki wajah ban chuke hain.",
+
     storySections: [
       {
-        heading: "1. Section 1 (Title baad mein decide karenge)",
-        text: "Mausam bilkul suhana tha. Hawa mein ek aisi shanti aur mithas thi jaise kismat pehle se jaanti thi ki aaj kuch bohot khaas hone wala hai. Dil thoda sa nervous tha, par aane wale lamhon ka intezaar bohot pyaara tha.",
-        imageUrl: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80"
+        heading: "1. The Movie Date and Begining of our Story.",
+        text: "Humari First date or movie so Vj mai bhot exited tha humari first date Ko Lekr its 1 Aug and its Girlfriend's day , mai bhot acche se janta tha or isi din mne ye date bhi chuni, jab mai tumhe pickup krne aaya vj to mai bhot nervous tha and jab tum samne aai to ek dum pari lgri thi beautiful and slaying up photo mai dekho, i know ki movie tumhe pasand bhi nhi aai but tumhara sath rehna hi mere liye impt. tha , And During Movie when i ask to hold your hand and you allowed it wo meri life ka bhot impt moment tha, uske bad we had your fav MOMO and there i gave you my First Gift to you That Floral Neckles or jab mne use tumhe apne hath se pehnaya na mai aasman p tha VJ or tumhe dil de betha.",
+        imageUrl: "/photos/movie.jpeg"
       },
       {
         heading: "2. Section 2 (Title baad mein decide karenge)",
@@ -308,6 +308,6 @@ export const initialBirthdayData = {
       }
     ],
 
-    endingNote: "...aur is khoobsurat dastan ke har panno mein bas tumhara hi naam likha hai. Happy Birthday VijayLaxmi (Cutu), my forever story! 📖💖"
+    endingNote: "...Log kehte hain ki har insaan ki zindagi ek kitaab hoti hai. Agar meri zindagi bhi ek kitaab hai, toh sach kahun? Tumhare aane se pehle uske panne bilkul khali the. Tumne aakar unme apne pyaar ke aise rang bhare hain ki ab wo kisi jaadu jaisi lagti hai. Aur ab... is khoobsurat dastan ke har ek panne par, har ek lafz mein, siyahi se nahi balki meri har dhadkan se bas tumhara hi naam likha hai. Tum sirf meri kahani ka ek hissa nahi ho, tum hi meri poori kahani ho, jise main har roz naye sire se jeena chahta hoon. Happy Birthday VijayLaxmi (meri pyari Cutu) ❤️, my first, my last, and my forever story! 📖💖"
   }
 };

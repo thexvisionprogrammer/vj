@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { BookOpen, Sparkles, Heart, Maximize2, X, ChevronLeft, ChevronRight, Image as ImageIcon } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { BookOpen, Sparkles, Heart, Maximize2, X, ChevronLeft, ChevronRight, Image as ImageIcon, Play, Pause, Mic, Volume2 } from 'lucide-react';
 
 export interface StorySection {
   heading: string;
@@ -29,12 +29,52 @@ export const Page13MeriKitab: React.FC<Page13MeriKitabProps> = ({
   const [introFinished, setIntroFinished] = useState(false);
   const [selectedSectionIndex, setSelectedSectionIndex] = useState<number | null>(null);
 
-  // Auto Play Soft Piano/Flute Music when entering Page 13
+  // Local audio player states
+  const [isPlayingAudio, setIsPlayingAudio] = useState(false);
+  const [audioCurrentTime, setAudioCurrentTime] = useState(0);
+  const [audioDuration, setAudioDuration] = useState(0);
+  const localAudioRef = useRef<HTMLAudioElement | null>(null);
+
+  // Auto Play Audio when entering Page 13
   useEffect(() => {
     if (onPlayTrack && meriKitab.bgMusicUrl) {
-      onPlayTrack(meriKitab.bgMusicUrl, 'Meri Kitab - Soft Romantic Instrumental (Piano & Flute)');
+      onPlayTrack(meriKitab.bgMusicUrl, 'Meri Kitab - Humari Mulakat (Special Audio)');
     }
   }, []);
+
+  const toggleLocalPlay = () => {
+    if (!localAudioRef.current) return;
+    if (isPlayingAudio) {
+      localAudioRef.current.pause();
+      setIsPlayingAudio(false);
+    } else {
+      localAudioRef.current.play().then(() => setIsPlayingAudio(true)).catch(console.error);
+    }
+  };
+
+  const handleAudioTimeUpdate = () => {
+    if (localAudioRef.current) {
+      setAudioCurrentTime(localAudioRef.current.currentTime);
+      if (localAudioRef.current.duration) {
+        setAudioDuration(localAudioRef.current.duration);
+      }
+    }
+  };
+
+  const handleAudioSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const time = parseFloat(e.target.value);
+    setAudioCurrentTime(time);
+    if (localAudioRef.current) {
+      localAudioRef.current.currentTime = time;
+    }
+  };
+
+  const formatTime = (timeInSec: number) => {
+    if (isNaN(timeInSec)) return "0:00";
+    const minutes = Math.floor(timeInSec / 60);
+    const seconds = Math.floor(timeInSec % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  };
 
   // Typewriter effect for Intro
   useEffect(() => {
@@ -72,7 +112,7 @@ export const Page13MeriKitab: React.FC<Page13MeriKitabProps> = ({
           </h2>
 
           <p className="text-amber-300/80 text-xs sm:text-sm font-handwriting text-xl">
-            10 Special Sections & Memories of Our Story • Soft romantic music playing...
+            10 Special Sections & Memories of Our Story • Humari Mulakat Special Audio 🎙️
           </p>
         </div>
 
@@ -85,7 +125,7 @@ export const Page13MeriKitab: React.FC<Page13MeriKitabProps> = ({
           <div className="absolute bottom-4 right-4 text-amber-900/30 text-3xl font-serif">❦</div>
 
           {/* First Photo Frame / Memory Badge */}
-          <div className="mb-10 flex flex-col sm:flex-row items-center gap-6 pb-8 border-b border-amber-900/20">
+          <div className="mb-8 flex flex-col sm:flex-row items-center gap-6 pb-8 border-b border-amber-900/20">
             <div className="w-40 sm:w-48 aspect-square rounded-2xl overflow-hidden border-4 border-amber-900/30 shadow-xl flex-shrink-0 group relative">
               <img
                 src={meriKitab.firstPhotoUrl}
@@ -106,6 +146,86 @@ export const Page13MeriKitab: React.FC<Page13MeriKitabProps> = ({
               <p className="text-sm text-amber-900/80 italic">
                 📍 {meriKitab.firstMeetingLocation}
               </p>
+            </div>
+          </div>
+
+          {/* Section: Dedicated Humari Mulakat Audio Player */}
+          <div className="mb-10 p-5 sm:p-6 rounded-2xl bg-amber-950/10 border-2 border-amber-900/30 shadow-inner relative overflow-hidden">
+            <audio
+              ref={localAudioRef}
+              src={meriKitab.bgMusicUrl}
+              onTimeUpdate={handleAudioTimeUpdate}
+              onEnded={() => setIsPlayingAudio(false)}
+            />
+
+            <div className="flex flex-col sm:flex-row items-center gap-5 justify-between">
+              <div className="flex items-center gap-4">
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-800 to-rose-700 flex items-center justify-center text-amber-100 shadow-md ${isPlayingAudio ? 'scale-105 transition-transform' : ''}`}>
+                  <Mic className={`w-7 h-7 ${isPlayingAudio ? 'animate-bounce' : ''}`} />
+                </div>
+                <div>
+                  <div className="inline-flex items-center gap-1 text-[11px] font-mono font-bold uppercase text-rose-800 bg-rose-500/10 px-2.5 py-0.5 rounded-full border border-rose-800/20 mb-1">
+                    <Sparkles className="w-3 h-3 text-rose-700" />
+                    Special Voice Note / Audio
+                  </div>
+                  <h4 className="font-serif-title text-lg font-bold text-amber-950">
+                    Humari Mulakat - Audio Recording 🎙️
+                  </h4>
+                  <p className="text-xs text-amber-900/80 italic">
+                    Listen to the special audio track recorded for Page 13
+                  </p>
+                </div>
+              </div>
+
+              {/* Play/Pause Button */}
+              <button
+                onClick={toggleLocalPlay}
+                className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-900 to-rose-900 text-amber-100 font-bold text-xs shadow-md hover:opacity-90 active:scale-95 transition-all flex-shrink-0"
+              >
+                {isPlayingAudio ? (
+                  <>
+                    <Pause className="w-4 h-4 fill-amber-100" /> Pause Audio
+                  </>
+                ) : (
+                  <>
+                    <Play className="w-4 h-4 fill-amber-100 ml-0.5" /> Play Humari Mulakat Audio
+                  </>
+                )}
+              </button>
+            </div>
+
+            {/* Scrubber & Soundwave */}
+            <div className="mt-4 pt-4 border-t border-amber-900/15 space-y-2">
+              <div className="flex items-center gap-1 h-6 w-full justify-center px-2">
+                {[...Array(32)].map((_, i) => (
+                  <div
+                    key={i}
+                    className={`w-1 rounded-full transition-all duration-300 ${isPlayingAudio
+                        ? 'bg-amber-900 animate-pulse'
+                        : 'bg-amber-900/20 h-1.5'
+                      }`}
+                    style={{
+                      height: isPlayingAudio
+                        ? `${Math.max(6, Math.sin(i + audioCurrentTime * 6) * 18 + 10)}px`
+                        : '6px',
+                      animationDelay: `${(i % 5) * 0.1}s`,
+                    }}
+                  />
+                ))}
+              </div>
+
+              <input
+                type="range"
+                min="0"
+                max={audioDuration || 100}
+                value={audioCurrentTime}
+                onChange={handleAudioSeek}
+                className="w-full accent-amber-900 cursor-pointer h-1.5 bg-amber-900/20 rounded-lg"
+              />
+              <div className="flex justify-between text-[11px] text-amber-900/70 font-mono">
+                <span>{formatTime(audioCurrentTime)}</span>
+                <span>{audioDuration ? formatTime(audioDuration) : 'Audio'}</span>
+              </div>
             </div>
           </div>
 
@@ -262,7 +382,6 @@ export const Page13MeriKitab: React.FC<Page13MeriKitabProps> = ({
             </p>
 
             <div className="pt-4 border-t border-amber-900/20 flex justify-between items-center text-xs text-amber-900/60 italic">
-              <span>Photo URL & Title can be edited anytime in birthdayData.ts</span>
               <button
                 onClick={() => setSelectedSectionIndex(null)}
                 className="px-4 py-1.5 rounded-xl bg-amber-950/10 hover:bg-amber-950/20 text-amber-950 font-bold not-italic"
