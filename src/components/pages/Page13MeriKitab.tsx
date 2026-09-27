@@ -5,7 +5,14 @@ export interface StorySection {
   heading: string;
   text: string;
   imageUrl?: string;
+  imageUrls?: string[];
 }
+
+const getSectionImages = (sec: StorySection): string[] => {
+  if (sec.imageUrls && sec.imageUrls.length > 0) return sec.imageUrls;
+  if (sec.imageUrl) return [sec.imageUrl];
+  return [];
+};
 
 interface Page13MeriKitabProps {
   partnerName: string;
@@ -28,6 +35,12 @@ export const Page13MeriKitab: React.FC<Page13MeriKitabProps> = ({
   const [typedIntro, setTypedIntro] = useState('');
   const [introFinished, setIntroFinished] = useState(false);
   const [selectedSectionIndex, setSelectedSectionIndex] = useState<number | null>(null);
+  const [activePhotoIndex, setActivePhotoIndex] = useState<number>(0);
+
+  // Reset photo index when section modal changes
+  useEffect(() => {
+    setActivePhotoIndex(0);
+  }, [selectedSectionIndex]);
 
   // Local audio player states
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
@@ -255,52 +268,65 @@ export const Page13MeriKitab: React.FC<Page13MeriKitabProps> = ({
 
             {/* 2-Column Responsive Grid for 10 Sections */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {meriKitab.storySections.map((sec, idx) => (
-                <div
-                  key={idx}
-                  onClick={() => setSelectedSectionIndex(idx)}
-                  className="group rounded-2xl border border-amber-900/20 bg-white/40 hover:bg-white/70 p-4 transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer flex flex-col justify-between"
-                >
-                  {/* Photo Frame */}
-                  <div className="relative w-full h-48 rounded-xl overflow-hidden mb-3 border border-amber-900/20 bg-amber-900/10">
-                    {sec.imageUrl ? (
-                      <img
-                        src={sec.imageUrl}
-                        alt={sec.heading}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter sepia-[0.1]"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex flex-col items-center justify-center text-amber-900/40">
-                        <ImageIcon className="w-8 h-8 mb-1" />
-                        <span className="text-xs">Photo Slot #{idx + 1}</span>
+              {meriKitab.storySections.map((sec, idx) => {
+                const secImages = getSectionImages(sec);
+                const coverImage = secImages[0];
+
+                return (
+                  <div
+                    key={idx}
+                    onClick={() => setSelectedSectionIndex(idx)}
+                    className="group rounded-2xl border border-amber-900/20 bg-white/40 hover:bg-white/70 p-4 transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer flex flex-col justify-between"
+                  >
+                    {/* Photo Frame */}
+                    <div className="relative w-full h-48 rounded-xl overflow-hidden mb-3 border border-amber-900/20 bg-amber-900/10">
+                      {coverImage ? (
+                        <img
+                          src={coverImage}
+                          alt={sec.heading}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter sepia-[0.1]"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex flex-col items-center justify-center text-amber-900/40">
+                          <ImageIcon className="w-8 h-8 mb-1" />
+                          <span className="text-xs">Photo Slot #{idx + 1}</span>
+                        </div>
+                      )}
+
+                      <div className="absolute top-2 left-2 px-2.5 py-0.5 rounded-full bg-amber-950/80 backdrop-blur-md text-amber-100 text-[10px] font-mono font-bold tracking-wider">
+                        Section {idx + 1}
                       </div>
-                    )}
 
-                    <div className="absolute top-2 left-2 px-2.5 py-0.5 rounded-full bg-amber-950/80 backdrop-blur-md text-amber-100 text-[10px] font-mono font-bold tracking-wider">
-                      Section {idx + 1}
+                      {secImages.length > 1 && (
+                        <div className="absolute bottom-2 right-2 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-amber-200 text-[10px] font-mono font-bold flex items-center gap-1 shadow-md">
+                          <ImageIcon className="w-3 h-3 text-rose-400" /> {secImages.length} Photos
+                        </div>
+                      )}
+
+                      <div className="absolute top-2 right-2 p-1.5 rounded-full bg-black/40 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                        <Maximize2 className="w-3.5 h-3.5" />
+                      </div>
                     </div>
 
-                    <div className="absolute top-2 right-2 p-1.5 rounded-full bg-black/40 text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                      <Maximize2 className="w-3.5 h-3.5" />
+                    {/* Section Title & Description */}
+                    <div>
+                      <h5 className="font-serif-title font-bold text-base text-rose-900 mb-1.5 line-clamp-1 group-hover:text-rose-700 transition-colors">
+                        {sec.heading}
+                      </h5>
+                      <p className="text-xs text-amber-950/90 leading-relaxed font-sans line-clamp-3">
+                        {sec.text}
+                      </p>
+                    </div>
+
+                    <div className="mt-3 pt-2 border-t border-amber-900/10 flex items-center justify-between text-[11px] text-amber-900/60">
+                      <span className="italic">
+                        {secImages.length > 1 ? `Click to view ${secImages.length} photos & text` : 'Click to view photo & text'}
+                      </span>
+                      <span className="font-mono text-rose-800 font-semibold">Chapter #{idx + 1}</span>
                     </div>
                   </div>
-
-                  {/* Section Title & Description */}
-                  <div>
-                    <h5 className="font-serif-title font-bold text-base text-rose-900 mb-1.5 line-clamp-1 group-hover:text-rose-700 transition-colors">
-                      {sec.heading}
-                    </h5>
-                    <p className="text-xs text-amber-950/90 leading-relaxed font-sans line-clamp-3">
-                      {sec.text}
-                    </p>
-                  </div>
-
-                  <div className="mt-3 pt-2 border-t border-amber-900/10 flex items-center justify-between text-[11px] text-amber-900/60">
-                    <span className="italic">Click to view photo & full text</span>
-                    <span className="font-mono text-rose-800 font-semibold">Chapter #{idx + 1}</span>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 
@@ -346,7 +372,7 @@ export const Page13MeriKitab: React.FC<Page13MeriKitabProps> = ({
                   }
                   className="p-1.5 rounded-full bg-amber-950/10 hover:bg-amber-950/20 text-amber-950 text-xs font-semibold flex items-center gap-1 px-2.5"
                 >
-                  <ChevronLeft className="w-4 h-4" /> Prev
+                  <ChevronLeft className="w-4 h-4" /> Prev Chapter
                 </button>
                 <button
                   onClick={() =>
@@ -356,21 +382,83 @@ export const Page13MeriKitab: React.FC<Page13MeriKitabProps> = ({
                   }
                   className="p-1.5 rounded-full bg-rose-800 text-white hover:bg-rose-900 text-xs font-semibold flex items-center gap-1 px-2.5"
                 >
-                  Next <ChevronRight className="w-4 h-4" />
+                  Next Chapter <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
             </div>
 
-            {/* Enlarge Photo View */}
-            {activeModalSection.imageUrl && (
-              <div className="w-full h-64 sm:h-80 rounded-2xl overflow-hidden border-2 border-amber-900/30 shadow-md mb-6">
-                <img
-                  src={activeModalSection.imageUrl}
-                  alt={activeModalSection.heading}
-                  className="w-full h-full object-cover filter sepia-[0.1]"
-                />
-              </div>
-            )}
+            {/* Enlarge Photo Gallery Carousel View */}
+            {(() => {
+              const modalImages = getSectionImages(activeModalSection);
+              const currentPhoto = modalImages[activePhotoIndex] || modalImages[0];
+
+              if (!currentPhoto) return null;
+
+              return (
+                <div className="mb-6 space-y-3">
+                  {/* Main Display Photo */}
+                  <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden border-2 border-amber-900/30 shadow-md bg-black/40">
+                    <img
+                      src={currentPhoto}
+                      alt={`${activeModalSection.heading} photo ${activePhotoIndex + 1}`}
+                      className="w-full h-full object-cover filter sepia-[0.1]"
+                    />
+
+                    {/* Photo Counter Badge */}
+                    {modalImages.length > 1 && (
+                      <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-amber-200 text-xs font-mono font-bold border border-amber-500/30 shadow-md">
+                        Photo {activePhotoIndex + 1} of {modalImages.length}
+                      </div>
+                    )}
+
+                    {/* Left / Right Arrow Controls for Photo Slider */}
+                    {modalImages.length > 1 && (
+                      <>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setActivePhotoIndex((prev) => (prev > 0 ? prev - 1 : modalImages.length - 1));
+                          }}
+                          className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/60 hover:bg-black/80 text-amber-100 border border-amber-500/30 transition-all backdrop-blur-sm hover:scale-110 active:scale-95"
+                          title="Previous Photo"
+                        >
+                          <ChevronLeft className="w-5 h-5" />
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setActivePhotoIndex((prev) => (prev < modalImages.length - 1 ? prev + 1 : 0));
+                          }}
+                          className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/60 hover:bg-black/80 text-amber-100 border border-amber-500/30 transition-all backdrop-blur-sm hover:scale-110 active:scale-95"
+                          title="Next Photo"
+                        >
+                          <ChevronRight className="w-5 h-5" />
+                        </button>
+                      </>
+                    )}
+                  </div>
+
+                  {/* Thumbnails Row */}
+                  {modalImages.length > 1 && (
+                    <div className="flex items-center gap-2 overflow-x-auto pb-1 pt-1">
+                      {modalImages.map((imgUrl, pIdx) => (
+                        <button
+                          key={pIdx}
+                          onClick={() => setActivePhotoIndex(pIdx)}
+                          className={`relative w-16 h-16 rounded-xl overflow-hidden border-2 transition-all flex-shrink-0 ${
+                            activePhotoIndex === pIdx
+                              ? 'border-amber-600 scale-105 shadow-md ring-2 ring-rose-500/40'
+                              : 'border-amber-900/30 opacity-60 hover:opacity-100'
+                          }`}
+                        >
+                          <img src={imgUrl} alt={`Thumbnail ${pIdx + 1}`} className="w-full h-full object-cover" />
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })()}
 
             {/* Section Heading & Text */}
             <h3 className="font-serif-title text-2xl font-bold text-amber-950 mb-3">

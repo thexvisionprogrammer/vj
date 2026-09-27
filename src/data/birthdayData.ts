@@ -259,7 +259,12 @@ export const initialBirthdayData = {
       {
         heading: "1. The Movie Date and Begining of our Story.",
         text: "Humari First date or movie so Vj mai bhot exited tha humari first date Ko Lekr its 1 Aug and its Girlfriend's day , mai bhot acche se janta tha or isi din mne ye date bhi chuni, jab mai tumhe pickup krne aaya vj to mai bhot nervous tha and jab tum samne aai to ek dum pari lgri thi beautiful and slaying up photo mai dekho, i know ki movie tumhe pasand bhi nhi aai but tumhara sath rehna hi mere liye impt. tha , And During Movie when i ask to hold your hand and you allowed it wo meri life ka bhot impt moment tha, uske bad we had your fav MOMO and there i gave you my First Gift to you That Floral Neckles or jab mne use tumhe apne hath se pehnaya na mai aasman p tha VJ or tumhe dil de betha.",
-        imageUrl: "/photos/movie.jpeg"
+        imageUrls: [
+          "/photos/movie.jpeg"
+          // Multiple photos lagane ke liye array me aur photos ke paths add karein:
+          // "/photos/movie2.jpeg",
+          // "/photos/movie3.jpeg"
+        ]
       },
       {
         heading: "2. Section 2 (Title baad mein decide karenge)",
