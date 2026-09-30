@@ -52,6 +52,7 @@ export const App: React.FC = () => {
   const handleSaveSettings = (newData: {
     partnerName: string;
     heroPhoto: string;
+    heroVideoUrl?: string;
     bgAudioUrl: string;
     voiceNoteAudioUrl: string;
   }) => {
@@ -59,6 +60,7 @@ export const App: React.FC = () => {
       ...prev,
       partnerName: newData.partnerName,
       heroPhoto: newData.heroPhoto,
+      heroVideoUrl: newData.heroVideoUrl || prev.heroVideoUrl,
       bgAudioUrl: newData.bgAudioUrl,
       voiceNoteAudioUrl: newData.voiceNoteAudioUrl,
     }));
@@ -75,6 +77,7 @@ export const App: React.FC = () => {
             partnerName={data.partnerName}
             tagline={data.tagline}
             heroPhoto={data.heroPhoto}
+            heroVideoUrl={data.heroVideoUrl}
             bgSongTitle={currentTrackTitle}
             onNext={() => setCurrentPage(1)}
           />
@@ -218,6 +221,7 @@ export const App: React.FC = () => {
         onClose={() => setIsSettingsOpen(false)}
         partnerName={data.partnerName}
         heroPhoto={data.heroPhoto}
+        heroVideoUrl={data.heroVideoUrl}
         bgAudioUrl={data.bgAudioUrl}
         voiceNoteAudioUrl={data.voiceNoteAudioUrl}
         onSave={handleSaveSettings}

@@ -38,8 +38,9 @@ export const initialBirthdayData = {
 
   // Page 1: Hero
   heroPhoto: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1600&q=80",
-  bgAudioUrl: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3", // Romantic soothing track
-  bgSongTitle: "Dooron Dooron (Soothing Romantic Track)",
+  heroVideoUrl: "/videos/wish01.mp4",
+  bgAudioUrl: "/audio/happy-birthday.mp3",
+  bgSongTitle: "Happy Birthday Tune 🎉",
 
   // Page 2: Voice Note
   voiceNoteAudioUrl: "audio/bdaynote.mpeg",
@@ -149,17 +150,17 @@ export const initialBirthdayData = {
 
   // Page 5: Kali Activa Rides
   activaRides: {
-    title: "The 'Kali Activa' Rides 🛵",
-    subtitle: "Simple rides, endless laughter & wind in our hair",
+    title: "The Night Drives 🌙",
+    subtitle: "We enjoyed drive more at night 🌙 rather than day time, Simple rides, endless laughter & wind in our hair",
     bgPhoto: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80",
     photos: [
       {
         url: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80",
-        caption: "Our trusty Black Activa ready for any random plan"
+        caption: "You Sound More Romantic in Night Drives and You Look More Beautiful in Night Drives "
       },
       {
         url: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=800&q=80",
-        caption: "Late night chai rides through empty city streets"
+        caption: "Late night rides with you seems more adventerous, rides with you Always "
       }
     ],
     note: "Who needs expensive sports cars when we have our Kali Activa? From random midnight craving trips to riding through sunset breezes, holding onto you tight on those rides is my favorite place in the world."

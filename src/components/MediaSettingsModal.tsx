@@ -6,11 +6,13 @@ interface MediaSettingsModalProps {
   onClose: () => void;
   partnerName: string;
   heroPhoto: string;
+  heroVideoUrl?: string;
   bgAudioUrl: string;
   voiceNoteAudioUrl: string;
   onSave: (newData: {
     partnerName: string;
     heroPhoto: string;
+    heroVideoUrl?: string;
     bgAudioUrl: string;
     voiceNoteAudioUrl: string;
   }) => void;
@@ -21,12 +23,14 @@ export const MediaSettingsModal: React.FC<MediaSettingsModalProps> = ({
   onClose,
   partnerName,
   heroPhoto,
+  heroVideoUrl = "/videos/video1.mp4",
   bgAudioUrl,
   voiceNoteAudioUrl,
   onSave,
 }) => {
   const [name, setName] = useState(partnerName);
   const [photo, setPhoto] = useState(heroPhoto);
+  const [video, setVideo] = useState(heroVideoUrl);
   const [audio, setAudio] = useState(bgAudioUrl);
   const [voiceAudio, setVoiceAudio] = useState(voiceNoteAudioUrl);
   const [savedSuccess, setSavedSuccess] = useState(false);
@@ -38,6 +42,7 @@ export const MediaSettingsModal: React.FC<MediaSettingsModalProps> = ({
     onSave({
       partnerName: name,
       heroPhoto: photo,
+      heroVideoUrl: video,
       bgAudioUrl: audio,
       voiceNoteAudioUrl: voiceAudio,
     });
@@ -66,10 +71,10 @@ export const MediaSettingsModal: React.FC<MediaSettingsModalProps> = ({
         </div>
 
         <h3 className="font-serif-title text-2xl font-bold text-slate-100 mb-4">
-          Customize Photos & Audio
+          Customize Photos, Videos & Audio
         </h3>
 
-        <form onSubmit={handleSubmit} className="space-y-4 text-sm">
+        <form onSubmit={handleSubmit} className="space-y-4 text-sm max-h-[75vh] overflow-y-auto pr-1">
           <div>
             <label className="block text-xs font-medium text-slate-300 mb-1">
               Partner's Name / Nickname
@@ -78,19 +83,32 @@ export const MediaSettingsModal: React.FC<MediaSettingsModalProps> = ({
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-100 focus:outline-none focus:border-pink-500"
+              className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-slate-100 focus:outline-none focus:border-pink-500"
             />
           </div>
 
           <div>
             <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1">
-              <Image className="w-3.5 h-3.5 text-pink-400" /> Hero Fullscreen Photo URL
+              <Image className="w-3.5 h-3.5 text-pink-400" /> Hero Background Photo URL
             </label>
             <input
               type="text"
               value={photo}
               onChange={(e) => setPhoto(e.target.value)}
-              className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-100 focus:outline-none focus:border-pink-500"
+              className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-slate-100 focus:outline-none focus:border-pink-500"
+            />
+          </div>
+
+          <div>
+            <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1">
+              <Video className="w-3.5 h-3.5 text-pink-400" /> Hero Centered Video URL (Page 1)
+            </label>
+            <input
+              type="text"
+              value={video}
+              onChange={(e) => setVideo(e.target.value)}
+              placeholder="/videos/video1.mp4"
+              className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-slate-100 focus:outline-none focus:border-pink-500"
             />
           </div>
 
@@ -102,7 +120,7 @@ export const MediaSettingsModal: React.FC<MediaSettingsModalProps> = ({
               type="text"
               value={audio}
               onChange={(e) => setAudio(e.target.value)}
-              className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-100 focus:outline-none focus:border-pink-500"
+              className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-slate-100 focus:outline-none focus:border-pink-500"
             />
           </div>
 
@@ -114,7 +132,7 @@ export const MediaSettingsModal: React.FC<MediaSettingsModalProps> = ({
               type="text"
               value={voiceAudio}
               onChange={(e) => setVoiceAudio(e.target.value)}
-              className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-100 focus:outline-none focus:border-pink-500"
+              className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-slate-100 focus:outline-none focus:border-pink-500"
             />
           </div>
 

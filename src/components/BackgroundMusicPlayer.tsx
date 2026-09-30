@@ -1,117 +1,139 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Music, Volume2, VolumeX, Disc } from 'lucide-react';
+import { Volume2, VolumeX } from 'lucide-react';
 
 interface BackgroundMusicPlayerProps {
   currentTrackUrl: string;
-  trackTitle: string;
+  trackTitle?: string;
 }
 
 export const BackgroundMusicPlayer: React.FC<BackgroundMusicPlayerProps> = ({
   currentTrackUrl,
-  trackTitle,
 }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
-  const [volume, setVolume] = useState(0.5);
-  const [isExpanded, setIsExpanded] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const prevTrackUrlRef = useRef<string>('');
+  const [isUserMuted, setIsUserMuted] = useState(false);
 
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = volume;
-    }
-  }, [volume]);
+  // Check if any other video or audio element on the page is playing with sound
+  const isOtherMediaPlaying = (): boolean => {
+    const allMedia = Array.from(
+      document.querySelectorAll('video, audio')
+    ) as HTMLMediaElement[];
 
-  useEffect(() => {
-    // When track changes, update audio src
-    if (audioRef.current) {
-      audioRef.current.src = currentTrackUrl;
-      if (isPlaying) {
-        audioRef.current.play().catch(() => setIsPlaying(false));
-      }
-    }
-  }, [currentTrackUrl]);
+    return allMedia.some(
+      (el) => el !== audioRef.current && !el.paused && !el.muted
+    );
+  };
 
-  const togglePlay = () => {
+  // Synchronize playing / pausing based on user mute setting & other media activity
+  const syncPlaybackState = () => {
     if (!audioRef.current) return;
-    if (isPlaying) {
-      audioRef.current.pause();
-      setIsPlaying(false);
+
+    if (isUserMuted) {
+      if (!audioRef.current.paused) {
+        audioRef.current.pause();
+      }
+      return;
+    }
+
+    const otherActive = isOtherMediaPlaying();
+    if (otherActive) {
+      if (!audioRef.current.paused) {
+        audioRef.current.pause();
+      }
     } else {
-      audioRef.current.play().then(() => setIsPlaying(true)).catch((err) => {
-        console.log("Autoplay policy error:", err);
-        setIsPlaying(false);
-      });
+      if (audioRef.current.paused) {
+        audioRef.current.play().catch(() => {
+          // Will play on user interaction if blocked by autoplay policy
+        });
+      }
     }
   };
 
-  const toggleMute = () => {
+  // Handle track URL or mute state changes
+  useEffect(() => {
     if (!audioRef.current) return;
-    audioRef.current.muted = !isMuted;
-    setIsMuted(!isMuted);
+
+    if (prevTrackUrlRef.current !== currentTrackUrl) {
+      audioRef.current.src = currentTrackUrl;
+      prevTrackUrlRef.current = currentTrackUrl;
+    }
+
+    syncPlaybackState();
+  }, [currentTrackUrl, isUserMuted]);
+
+  // Autoplay fallback and global media event listeners
+  useEffect(() => {
+    syncPlaybackState();
+
+    // Browser autoplay policy handler: play on first user interaction if blocked initially
+    const handleUserInteraction = () => {
+      syncPlaybackState();
+    };
+
+    window.addEventListener('click', handleUserInteraction);
+    window.addEventListener('pointerdown', handleUserInteraction);
+    window.addEventListener('keydown', handleUserInteraction);
+    window.addEventListener('touchstart', handleUserInteraction);
+
+    // Global capture listeners for media play, pause, ended events across all pages
+    const handleMediaEvent = () => {
+      setTimeout(syncPlaybackState, 50);
+    };
+
+    document.addEventListener('play', handleMediaEvent, true);
+    document.addEventListener('pause', handleMediaEvent, true);
+    document.addEventListener('ended', handleMediaEvent, true);
+
+    // Interval safety net to handle modal unmounts, page changes, etc.
+    const interval = setInterval(syncPlaybackState, 400);
+
+    return () => {
+      window.removeEventListener('click', handleUserInteraction);
+      window.removeEventListener('pointerdown', handleUserInteraction);
+      window.removeEventListener('keydown', handleUserInteraction);
+      window.removeEventListener('touchstart', handleUserInteraction);
+
+      document.removeEventListener('play', handleMediaEvent, true);
+      document.removeEventListener('pause', handleMediaEvent, true);
+      document.removeEventListener('ended', handleMediaEvent, true);
+
+      clearInterval(interval);
+    };
+  }, [isUserMuted]);
+
+  const toggleMute = () => {
+    setIsUserMuted((prev) => !prev);
   };
 
   return (
-    <div className="fixed top-4 right-4 z-50 flex items-center gap-2">
-      <audio ref={audioRef} src={currentTrackUrl} loop />
+    <>
+      <audio
+        ref={audioRef}
+        src={currentTrackUrl}
+        loop
+        preload="auto"
+        className="hidden"
+      />
 
-      {/* Main Pill Widget */}
-      <div 
-        className={`glass-card flex items-center gap-3 px-3 py-2 border border-pink-500/30 shadow-lg shadow-pink-500/10 transition-all duration-300 ${
-          isExpanded ? 'w-64' : 'w-auto'
-        }`}
-      >
-        <button
-          onClick={togglePlay}
-          className="relative flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-md hover:scale-105 active:scale-95 transition-transform"
-          title={isPlaying ? "Pause Music" : "Play Music"}
-        >
-          <Disc className={`w-5 h-5 ${isPlaying ? 'animate-spin' : ''}`} style={{ animationDuration: '4s' }} />
-        </button>
-
-        <div className="flex-1 overflow-hidden cursor-pointer" onClick={() => setIsExpanded(!isExpanded)}>
-          <div className="flex items-center gap-1">
-            <Music className="w-3.5 h-3.5 text-pink-400 animate-pulse" />
-            <span className="text-xs font-semibold text-pink-300 uppercase tracking-wider">Audio</span>
-          </div>
-          <p className="text-xs font-medium text-slate-200 truncate max-w-[140px]" title={trackTitle}>
-            {trackTitle}
-          </p>
-        </div>
-
+      {/* Small Sleek Mute / Unmute Toggle Button at Top Right */}
+      <div className="fixed top-4 right-4 z-50">
         <button
           onClick={toggleMute}
-          className="text-slate-400 hover:text-pink-400 transition-colors p-1"
-          title={isMuted ? "Unmute" : "Mute"}
+          className={`p-2.5 rounded-full glass-card border shadow-lg backdrop-blur-md transition-all duration-300 hover:scale-110 active:scale-95 flex items-center justify-center ${
+            isUserMuted
+              ? 'border-rose-500/40 bg-rose-500/10 text-rose-400 hover:bg-rose-500/20'
+              : 'border-pink-500/30 bg-black/40 text-pink-400 hover:bg-pink-500/20'
+          }`}
+          title={isUserMuted ? "Unmute Background Music" : "Mute Background Music"}
+          aria-label={isUserMuted ? "Unmute Background Music" : "Mute Background Music"}
         >
-          {isMuted ? <VolumeX className="w-4 h-4 text-rose-400" /> : <Volume2 className="w-4 h-4" />}
+          {isUserMuted ? (
+            <VolumeX className="w-4 h-4 text-rose-400" />
+          ) : (
+            <Volume2 className="w-4 h-4 text-pink-400 animate-pulse" />
+          )}
         </button>
       </div>
-
-      {/* Expanded Controls Drawer */}
-      {isExpanded && (
-        <div className="glass-card absolute top-14 right-0 p-3 w-64 shadow-2xl flex flex-col gap-2 animate-in fade-in slide-in-from-top-2 border border-pink-500/30">
-          <div className="flex justify-between items-center text-xs text-slate-300">
-            <span>Volume</span>
-            <span>{Math.round((isMuted ? 0 : volume) * 100)}%</span>
-          </div>
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.01"
-            value={isMuted ? 0 : volume}
-            onChange={(e) => {
-              setVolume(parseFloat(e.target.value));
-              if (isMuted) setIsMuted(false);
-            }}
-            className="w-full accent-pink-500 cursor-pointer h-1.5 bg-slate-700 rounded-lg"
-          />
-          <p className="text-[10px] text-slate-400 italic text-center mt-1">
-            Click anywhere to minimize player
-          </p>
-        </div>
-      )}
-    </div>
+    </>
   );
 };

@@ -155,7 +155,7 @@ export const Page4MountainDiaries: React.FC<Page4MountainDiariesProps> = ({ moun
         {/* Audio Player Card Section */}
         <div className="glass-card p-6 sm:p-8 border border-sky-500/30 shadow-2xl relative overflow-hidden mb-12 rounded-2xl">
           <div className="absolute -top-20 -right-20 w-56 h-56 bg-sky-500/15 rounded-full blur-3xl pointer-events-none" />
-          
+
           <div className="relative z-10 flex flex-col gap-6">
             <div className="flex items-center justify-between border-b border-white/10 pb-4">
               <div className="flex items-center gap-3">
@@ -212,11 +212,10 @@ export const Page4MountainDiaries: React.FC<Page4MountainDiariesProps> = ({ moun
                   {[...Array(24)].map((_, i) => (
                     <div
                       key={i}
-                      className={`flex-1 rounded-full transition-all duration-300 ${
-                        isPlaying
+                      className={`flex-1 rounded-full transition-all duration-300 ${isPlaying
                           ? 'bg-gradient-to-t from-sky-400 to-indigo-300 animate-pulse'
                           : 'bg-slate-700 h-1.5'
-                      }`}
+                        }`}
                       style={{
                         height: isPlaying
                           ? `${Math.max(6, Math.sin(i + currentTime * 4) * 20 + 12)}px`
@@ -255,7 +254,7 @@ export const Page4MountainDiaries: React.FC<Page4MountainDiariesProps> = ({ moun
             "A Divine & Pure Decision"
           </h4>
           <p className="text-slate-300 text-base max-w-2xl mx-auto leading-relaxed">
-            Visiting Kainchi Dham with you was the purest decision of our lives. Under Neem Karoli Baba's divine grace, every moment felt peaceful, sacred, and infinitely special.
+            Visiting Kainchi Dham with you was the purest decision of our lives. Under Neem Karoli Baba's divine grace, every moment felt peaceful, sacred, and infinitely special. VJ if things go well with us we will again visit this place promiss .
           </p>
         </div>
       </div>
