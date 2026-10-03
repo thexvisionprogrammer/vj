@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BookOpen, Sparkles, Heart, Maximize2, X, ChevronLeft, ChevronRight, Image as ImageIcon, Play, Pause, Mic, Video, Music } from 'lucide-react';
 
+import { SmartVideoPlayer } from '../SmartVideoPlayer';
+
 export interface StorySection {
   heading: string;
   text: string;
@@ -457,20 +459,21 @@ export const Page13MeriKitab: React.FC<Page13MeriKitabProps> = ({
               return (
                 <div className="mb-6 space-y-3">
                   {/* Main Display Media (Image or Video) */}
-                  <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden border-2 border-amber-900/30 shadow-md bg-black/60">
+                  <div className="relative w-full rounded-2xl overflow-hidden border-2 border-amber-900/30 shadow-md bg-black/60">
                     {isVideo ? (
-                      <video
+                      <SmartVideoPlayer
                         key={currentMedia}
                         src={currentMedia}
-                        controls
-                        autoPlay
-                        className="w-full h-full object-contain"
+                        controls={true}
+                        autoPlay={true}
+                        loop={true}
+                        showFitToggle={true}
                       />
                     ) : (
                       <img
                         src={currentMedia}
                         alt={`${activeModalSection.heading} item ${activePhotoIndex + 1}`}
-                        className="w-full h-full object-cover filter sepia-[0.1]"
+                        className="w-full h-64 sm:h-80 object-cover filter sepia-[0.1]"
                       />
                     )}
 

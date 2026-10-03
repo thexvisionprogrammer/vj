@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { initialBirthdayData } from './data/birthdayData';
 import { Navbar } from './components/Navbar';
 import { BackgroundMusicPlayer } from './components/BackgroundMusicPlayer';
@@ -23,6 +23,11 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(0);
+
+  // Automatically scroll to the top of the window whenever the active page changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [currentPage]);
   const [data, setData] = useState(initialBirthdayData);
   const [currentTrackUrl, setCurrentTrackUrl] = useState(initialBirthdayData.bgAudioUrl);
   const [currentTrackTitle, setCurrentTrackTitle] = useState(initialBirthdayData.bgSongTitle);
@@ -33,7 +38,7 @@ export const App: React.FC = () => {
     "My Voice for You",
     "All About VijayLaxmi (Cutu) ❤️",
     "Our Purest Decision to Kaichi Dham",
-    "The 'Kali Activa' Rides",
+    "Your Eyes 👀✨",
     "Driving Dates & Playlists",
     "Food & Flavors",
     "The Blooper Reel",

@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { Heart, Sparkles, Music, ChevronDown, Play, Volume2, VolumeX } from 'lucide-react';
 
+import { SmartVideoPlayer } from '../SmartVideoPlayer';
+
 interface Page1HomeProps {
   partnerName: string;
   tagline: string;
@@ -18,7 +20,7 @@ export const Page1Home: React.FC<Page1HomeProps> = ({
   bgSongTitle,
   onNext,
 }) => {
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const toggleMute = () => {
@@ -86,7 +88,7 @@ export const Page1Home: React.FC<Page1HomeProps> = ({
         </p>
 
         {/* Centered Video Player Card */}
-        <div className="relative w-full max-w-xl my-4 group">
+        <div className="relative w-full max-w-lg sm:max-w-xl my-4 group">
           {/* Glowing Ambient Aura */}
           <div className="absolute -inset-1 bg-gradient-to-r from-pink-600 via-rose-500 to-amber-500 rounded-3xl blur-xl opacity-40 group-hover:opacity-70 transition duration-700 animate-pulse" />
 
@@ -109,19 +111,16 @@ export const Page1Home: React.FC<Page1HomeProps> = ({
               </button>
             </div>
 
-            {/* Video Player */}
-            <div className="relative rounded-xl overflow-hidden bg-black aspect-video flex items-center justify-center shadow-inner">
-              <video
-                ref={videoRef}
-                src={heroVideoUrl}
-                autoPlay
-                loop
-                muted={isMuted}
-                playsInline
-                controls
-                className="w-full h-full object-contain rounded-xl"
-              />
-            </div>
+            {/* Smart Video Player Component */}
+            <SmartVideoPlayer
+              src={heroVideoUrl}
+              videoRef={videoRef}
+              muted={isMuted}
+              autoPlay={false}
+              loop={true}
+              controls={true}
+              showFitToggle={true}
+            />
           </div>
         </div>
 

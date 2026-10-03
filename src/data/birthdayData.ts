@@ -148,22 +148,22 @@ export const initialBirthdayData = {
     ]
   },
 
-  // Page 5: Kali Activa Rides
+  // Page 5: Your Eyes
   activaRides: {
-    title: "The Night Drives 🌙",
-    subtitle: "We enjoyed drive more at night 🌙 rather than day time, Simple rides, endless laughter & wind in our hair",
-    bgPhoto: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80",
+    title: "Your Eyes - The Galaxy I Get Lost In 👀✨",
+    subtitle: "In your eyes, I find a universe full of peace, magic, and endless love. One glance from you, and my heart forgets how to beat...",
+    bgPhoto: "/photos/photo8.jpeg",
     photos: [
       {
-        url: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80",
-        caption: "You Sound More Romantic in Night Drives and You Look More Beautiful in Night Drives "
+        url: "/photos/photo16.jpeg",
+        caption: "That gentle, enchanting look in your eyes that melts my heart every single time 👀💖"
       },
       {
-        url: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=800&q=80",
-        caption: "Late night rides with you seems more adventerous, rides with you Always "
+        url: "/videos/video14.mp4",
+        caption: "How your eyes sparkle when you laugh—pure magic and happiness ✨😊"
       }
     ],
-    note: "Who needs expensive sports cars when we have our Kali Activa? From random midnight craving trips to riding through sunset breezes, holding onto you tight on those rides is my favorite place in the world."
+    note: "Tumhari aankhon mein ek aisi chamak aur sukoon hai jo mujhe har baar tumse dobara pyaar karne par majboor kar deti hai. Jab tum mujhe dekhti ho, lagta hai poori duniya ruk gayi hai aur sirf hum dono bache hain. Your eyes are my favorite place in this entire universe, VijayLaxmi (Cutu) ❤️."
   },
 
   // Page 6: Driving Dates & Playlists
@@ -171,9 +171,11 @@ export const initialBirthdayData = {
     title: "Car Dates & Playlist 🚗🎶",
     subtitle: "10 Songs that played while we chased horizons together",
     photos: [
-      "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80"
+      "/photos/photo20.jpeg",
+      "/videos/video3.mp4",
+      "/videos/video4.mp4",
+      "/videos/video6.mp4",
+      "/videos/video5.mp4"
     ],
     playlist: [
       { id: 1, title: "Dooron Dooron", artist: "Paresh / Smooth Vibes", albumArt: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=300&q=80", duration: "3:42", audioUrl: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" },
@@ -213,28 +215,46 @@ export const initialBirthdayData = {
     note: "Cooking for you or exploring new food spots together always turns into our happiest ritual. You make every meal feel like a royal feast!"
   },
 
-  // Page 8: The Blooper Reel
+  // Page 8: Blooper Photos
   bloopers: {
-    title: "The Blooper Reel 🎬🍿",
-    subtitle: "Relationship perfection isn't in posed photos, it's in our goofy, hilarious moments!",
-    videos: [
+    title: "Blooper Photos 📸🍿",
+    subtitle: "Relationship perfection isn't in posed photos, it's in our goofy, hilarious, unfiltered moments!",
+    photos: [
       {
         id: 1,
-        thumbnailUrl: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80",
-        videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-young-couple-having-fun-outdoors-42866-large.mp4",
-        caption: "When you tried to take a cute candid but got scared by a dog 😂"
+        url: "/photos/photo20.jpeg",
+        caption: "When you tried to take a cute candid but got caught making a funny face 😂",
+        location: "Cutest Blooper"
       },
       {
         id: 2,
-        thumbnailUrl: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80",
-        videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-happy-couple-walking-and-laughing-on-the-beach-41611-large.mp4",
-        caption: "Attempting a viral dance trend and failing miserably 💃🕺"
+        url: "/photos/photo16.jpeg",
+        caption: "Unfiltered smiles and crazy goofy moments that make my day 🤪",
+        location: "Goofy Smiles"
       },
       {
         id: 3,
-        thumbnailUrl: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80",
-        videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-couple-in-love-enjoying-the-sunset-41615-large.mp4",
-        caption: "Uncontrollable giggles during an important serious moment 🤪"
+        url: "/photos/photos15.jpeg",
+        caption: "Attempting a perfect aesthetic pose and failing miserably 💃🕺",
+        location: "Pure Giggles"
+      },
+      {
+        id: 4,
+        url: "/photos/photo17.jpeg",
+        caption: "When you steal my oversized hoodie and look 100x cuter than me 💖",
+        location: "Hoodie Stealer"
+      },
+      {
+        id: 5,
+        url: "/photos/photo18.jpeg",
+        caption: "Uncontrollable giggles during an important serious moment 📸✨",
+        location: "Unstoppable Laughs"
+      },
+      {
+        id: 6,
+        url: "/photos/photo19.jpeg",
+        caption: "Pure unfiltered happiness — my absolute favorite blooper memory ❤️",
+        location: "Forever Memory"
       }
     ]
   },
@@ -331,59 +351,69 @@ export const initialBirthdayData = {
         ]
       },
       {
-        heading: "4. Section 4 (Title baad mein decide karenge)",
+        heading: "Humari Train Trip",
         text: "Wo pehli hassi aur wo cute moments jab hum dono ek dusre ko dekh kar bina kisi waja ke muskura rahe the. Kuch rishte shabdon ke mohtaj nahi hote, bas ehsaas hi kafi hota hai.",
         audioUrl: "", // Chapter 4 audio file path
         imageUrls: [
-          "/photos/movie.jpeg"
+          "/photos/photo14.jpeg",
+          "/photos/photos15.jpeg",
+          "/videos/video7.mp4"
         ]
       },
       {
-        heading: "5. Section 5 (Title baad mein decide karenge)",
+        heading: "Humari First Candle light Dinner/And that Night walk",
         text: "Chai ki chuskiyon ke saath baatein deep hoti gayi. Tumhara life ko dekhne ka nazariya aur tumhari baaton ki mehak ne dil ko poori tarah jeet liya tha.",
         audioUrl: "", // Chapter 5 audio file path
         imageUrls: [
-          "/photos/movie.jpeg"
+          "/videos/video11.mp4",
+          "/videos/video13.mp4",
+
         ]
       },
       {
-        heading: "6. Section 6 (Title baad mein decide karenge)",
-        text: "Waqt ka pata hi nahi chala. Ghante seconds ki tarah beet gaye. Lag raha tha kaash ye sham kabhi khatam hi na ho aur waqt yahi ruk jaye.",
+        heading: "Baba Neem karoli Darshan/ Golu Devta Temple wishes ",
+        text: "Standing together in front of Maharaj-ji, taking blessings for our togetherness. That serene peace on your face is etched in my heart forever.",
         audioUrl: "", // Chapter 6 audio file path
         imageUrls: [
-          "/photos/movie.jpeg"
+          "/photos/photo10.jpeg",
+          "/photos/photo12.jpeg",
+          "/photos/photo13.jpeg"
         ]
       },
       {
-        heading: "7. Section 7 (Title baad mein decide karenge)",
+        heading: "My Fav. Moments with You - the rain and Romantic buss ride.",
         text: "Ek doosre ke sapne, khwahishein aur favorite cheezon ki baatein. Pata chala ki hamari kitni saari pasand aur baatein aapas mein milti hain.",
         audioUrl: "", // Chapter 7 audio file path
         imageUrls: [
-          "/photos/movie.jpeg"
+          "/videos/video15.mp4"
         ]
       },
       {
-        heading: "8. Section 8 (Title baad mein decide karenge)",
+        heading: "My Gurdian Angel",
         text: "Alvida kehte waqt dil keh raha tha ki ye bas ek nayi shuruat hai. Wo pehli mulakat ab har din ek nayi yaad ban kar mehakti hai.",
         audioUrl: "", // Chapter 8 audio file path
         imageUrls: [
-          "/photos/movie.jpeg"
+          "/videos/video12.mp4"
+
         ]
       },
       {
-        heading: "9. Section 9 (Title baad mein decide karenge)",
+        heading: "Khatro ke Khiladi/ Adventure Rides.",
         text: "Ghar laut-te waqt bhi bas tumhara hi khayal tha. Dimaag mein tumhari baatein aur dil mein ek anokhi khushi gunj rahi thi.",
         audioUrl: "", // Chapter 9 audio file path
         imageUrls: [
-          "/photos/movie.jpeg"
+          "/videos/video9.mp4",
+          "/videos/video10.mp4"
         ]
       },
       {
-        heading: "10. Section 10 (Title baad mein decide karenge)",
-        text: "Aaj jab peeche mud kar dekhta hoon, toh samajh aata hai ki wo mulakat ek ittefaq nahi, balki kismat ka sabse haseen tohfa tha.",
+        heading: "Future Plans.... with only and only you Cutu ❤️",
+        text: "I don’t just hold your hand to keep you close; I hold it because in your touch, I have found my favorite place in the entire world. I could hold your hand forever and it still wouldn't feel like enough time.,Dekho cutu , no one knows ki aage life mai kya hoga and we are expecting good journey ahed and i also want that journey shuru se last tk hmara sath rhe or hum hmesa ek dusre ka sath de apko khush rakhna h mujhe , i will be their for you in your success and in your failures too , i will be their to console you and to celebrate your wins , i will be their to support you in your dreams and ambitions , i will be their to complete you and to make you happy , i will be their for you forever and always, one more thing tum jb soti ho na vj bilkul ek bacchi ki treh lgti ho, itna pyar krne ka mn krta h ki bs ,i litrally want ase hi hr trip m tum mere sarth ho or hum duniya ka har kona enjoy kre sath.",
         audioUrl: "", // Chapter 10 audio file path
         imageUrls: [
-          "/photos/movie.jpeg"
+          "/photos/photo17.jpeg",
+          "/photos/photo19.jpeg",
+          "/photos/photo18.jpeg"
         ]
       }
     ],

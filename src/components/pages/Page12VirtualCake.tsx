@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 import { Cake, Sparkles, Play, Flame, Heart } from 'lucide-react';
 
+import { SmartVideoPlayer } from '../SmartVideoPlayer';
+
 interface Page12VirtualCakeProps {
   partnerName: string;
   virtualCake: {
@@ -168,10 +170,10 @@ export const Page12VirtualCake: React.FC<Page12VirtualCakeProps> = ({
         {/* Video Wish Player Modal */}
         {showVideoWish && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
-            <div className="relative w-full max-w-3xl glass-card p-6 border border-pink-500/50 rounded-3xl shadow-2xl">
+            <div className="relative w-full max-w-2xl glass-card p-6 border border-pink-500/50 rounded-3xl shadow-2xl">
               <button
                 onClick={() => setShowVideoWish(false)}
-                className="absolute top-4 right-4 text-slate-400 hover:text-white p-2 rounded-full bg-black/50 transition-colors z-10"
+                className="absolute top-4 right-4 text-slate-400 hover:text-white p-2 rounded-full bg-black/50 transition-colors z-20"
               >
                 ✕
               </button>
@@ -180,12 +182,13 @@ export const Page12VirtualCake: React.FC<Page12VirtualCakeProps> = ({
                 My Birthday Video Wish For You ❤️
               </h3>
 
-              <div className="aspect-video w-full rounded-2xl overflow-hidden bg-black shadow-inner mb-4">
-                <video
+              <div className="mb-4">
+                <SmartVideoPlayer
                   src={virtualCake.videoWishUrl}
-                  controls
-                  autoPlay
-                  className="w-full h-full object-contain"
+                  controls={true}
+                  autoPlay={true}
+                  loop={true}
+                  showFitToggle={true}
                 />
               </div>
 

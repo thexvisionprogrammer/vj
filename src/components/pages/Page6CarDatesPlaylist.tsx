@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Play, Pause, Music, Disc, Heart, Car } from 'lucide-react';
+import { Play, Pause, Music, Disc, Heart, Car, Film, Image as ImageIcon } from 'lucide-react';
 import type { Song } from '../../data/birthdayData';
+import { SmartVideoPlayer } from '../SmartVideoPlayer';
 
 interface Page6CarDatesPlaylistProps {
   drivingDates: {
@@ -11,6 +12,20 @@ interface Page6CarDatesPlaylistProps {
   };
   onPlayTrack?: (trackUrl: string, title: string) => void;
 }
+
+const isVideoUrl = (url: string): boolean => {
+  if (!url) return false;
+  const lower = url.toLowerCase();
+  return (
+    lower.endsWith('.mp4') ||
+    lower.endsWith('.webm') ||
+    lower.endsWith('.mov') ||
+    lower.endsWith('.ogg') ||
+    lower.endsWith('.m4v') ||
+    lower.includes('/videos/') ||
+    lower.includes('.mp4?')
+  );
+};
 
 export const Page6CarDatesPlaylist: React.FC<Page6CarDatesPlaylistProps> = ({
   drivingDates,
@@ -46,22 +61,44 @@ export const Page6CarDatesPlaylist: React.FC<Page6CarDatesPlaylistProps> = ({
           </p>
         </div>
 
-        {/* Car Dates Photos Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
-          {drivingDates.photos.map((photoUrl, idx) => (
-            <div
-              key={idx}
-              className="glass-card overflow-hidden border border-rose-500/20 rounded-2xl group shadow-lg"
-            >
-              <div className="aspect-[4/3] w-full overflow-hidden">
-                <img
-                  src={photoUrl}
-                  alt={`Car Date ${idx + 1}`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
+        {/* Car Dates Photos & Videos Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+          {drivingDates.photos.map((mediaUrl, idx) => {
+            const isVideo = isVideoUrl(mediaUrl);
+            return (
+              <div
+                key={idx}
+                className="glass-card overflow-hidden border border-rose-500/20 rounded-2xl group shadow-lg flex flex-col bg-slate-900/60"
+              >
+                {isVideo ? (
+                  <div className="w-full relative bg-slate-950 p-1.5 flex-1 flex items-center justify-center">
+                    <SmartVideoPlayer
+                      src={mediaUrl}
+                      controls={true}
+                      autoPlay={false}
+                      loop={true}
+                      muted={true}
+                      playsInline={true}
+                      showFitToggle={true}
+                      containerClassName="rounded-xl border border-rose-500/20 w-full"
+                    />
+                  </div>
+                ) : (
+                  <div className="aspect-[4/3] w-full overflow-hidden relative flex-1">
+                    <img
+                      src={mediaUrl}
+                      alt={`Car Date Memory ${idx + 1}`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute top-2.5 right-2.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-[11px] font-mono text-pink-300 border border-pink-500/30 flex items-center gap-1 z-10 pointer-events-none">
+                      <ImageIcon className="w-3 h-3 text-rose-400" />
+                      <span>Photo</span>
+                    </div>
+                  </div>
+                )}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Custom Spotify-Style Playlist Player Container */}
