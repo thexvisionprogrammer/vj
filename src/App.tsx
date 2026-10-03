@@ -35,6 +35,7 @@ export const App: React.FC = () => {
 
   const pageTitles = [
     "The Grand Welcome",
+    "The Virtual Cake & Wish",
     "My Voice for You",
     "All About VijayLaxmi (Cutu) ❤️",
     "Our Purest Decision to Kaichi Dham",
@@ -45,7 +46,6 @@ export const App: React.FC = () => {
     "10 Reasons Why I Love You",
     "Secret Letters",
     "The Future Bucket List",
-    "The Virtual Cake & Wish",
     "Meri Kitab: Ek Mulakat"
   ];
 
@@ -89,6 +89,13 @@ export const App: React.FC = () => {
         );
       case 1:
         return (
+          <Page12VirtualCake
+            partnerName={data.partnerName}
+            virtualCake={data.virtualCake}
+          />
+        );
+      case 2:
+        return (
           <Page2VoiceNote
             partnerName={data.partnerName}
             voiceNoteAudioUrl={data.voiceNoteAudioUrl}
@@ -97,67 +104,60 @@ export const App: React.FC = () => {
             voiceNoteMessage={data.voiceNoteMessage}
           />
         );
-      case 2:
+      case 3:
         return (
           <Page3AllAboutV
             partnerName={data.partnerName}
             aboutV={data.aboutV}
           />
         );
-      case 3:
+      case 4:
         return (
           <Page4MountainDiaries
             mountainDiaries={data.mountainDiaries}
           />
         );
-      case 4:
+      case 5:
         return (
           <Page5ActivaRides
             activaRides={data.activaRides}
           />
         );
-      case 5:
+      case 6:
         return (
           <Page6CarDatesPlaylist
             drivingDates={data.drivingDates}
             onPlayTrack={handleTrackChange}
           />
         );
-      case 6:
+      case 7:
         return (
           <Page7FoodFlavors
             foodFlavors={data.foodFlavors}
           />
         );
-      case 7:
+      case 8:
         return (
           <Page8VideoVault
             bloopers={data.bloopers}
           />
         );
-      case 8:
+      case 9:
         return (
           <Page9ReasonsLove
             reasons={data.reasons}
           />
         );
-      case 9:
+      case 10:
         return (
           <Page10SecretLetters
             secretLetters={data.secretLetters}
           />
         );
-      case 10:
+      case 11:
         return (
           <Page11BucketList
             initialBucketList={data.bucketList}
-          />
-        );
-      case 11:
-        return (
-          <Page12VirtualCake
-            partnerName={data.partnerName}
-            virtualCake={data.virtualCake}
           />
         );
       case 12:
