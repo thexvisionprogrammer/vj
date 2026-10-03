@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Play, Pause, Music, Disc, Heart, Car, Film, Image as ImageIcon } from 'lucide-react';
+import { Play, Pause, Music, Disc, Heart, Car, Image as ImageIcon } from 'lucide-react';
 import type { Song } from '../../data/birthdayData';
 import { SmartVideoPlayer } from '../SmartVideoPlayer';
 

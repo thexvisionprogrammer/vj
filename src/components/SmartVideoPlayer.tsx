@@ -31,7 +31,6 @@ export const SmartVideoPlayer: React.FC<SmartVideoPlayerProps> = ({
   const videoRef = externalRef || internalRef;
   const bgVideoRef = useRef<HTMLVideoElement | null>(null);
 
-  const [aspectRatio, setAspectRatio] = useState<number | null>(null);
   const [isPortrait, setIsPortrait] = useState<boolean>(false);
   const [fitMode, setFitMode] = useState<'contain' | 'cover' | 'auto'>('auto');
   const [isPlaying, setIsPlaying] = useState<boolean>(autoPlay);
@@ -40,7 +39,6 @@ export const SmartVideoPlayer: React.FC<SmartVideoPlayerProps> = ({
     const video = e.currentTarget;
     if (video.videoWidth && video.videoHeight) {
       const ratio = video.videoWidth / video.videoHeight;
-      setAspectRatio(ratio);
       // If height > width (portrait video, e.g. 9:16 reels/shorts)
       setIsPortrait(ratio < 0.95);
     }

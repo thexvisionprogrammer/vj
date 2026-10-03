@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Camera, Laugh, X, Sparkles, Heart, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
+import { Camera, Laugh, X, Sparkles, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
 import { SmartVideoPlayer } from '../SmartVideoPlayer';
 
 export interface BlooperItem {
