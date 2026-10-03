@@ -84,17 +84,8 @@ export const SmartVideoPlayer: React.FC<SmartVideoPlayerProps> = ({
     <div
       className={`relative w-full overflow-hidden rounded-2xl bg-slate-950 shadow-2xl flex items-center justify-center transition-all duration-500 ${containerClassName}`}
     >
-      {/* Ambient Blurred Video Background */}
-      <video
-        ref={bgVideoRef}
-        src={src}
-        autoPlay={autoPlay}
-        loop={loop}
-        muted={true}
-        playsInline={playsInline}
-        aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover blur-3xl opacity-50 scale-125 pointer-events-none filter brightness-90 saturate-150 transition-opacity duration-700"
-      />
+      {/* Ambient Gradient Glow Background */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-pink-900/30 via-purple-900/20 to-slate-950 opacity-80 blur-2xl pointer-events-none" />
 
       {/* Subtle overlay tint */}
       <div className="absolute inset-0 bg-slate-950/40 backdrop-blur-[1px] pointer-events-none" />
@@ -115,6 +106,7 @@ export const SmartVideoPlayer: React.FC<SmartVideoPlayerProps> = ({
           muted={muted}
           playsInline={playsInline}
           controls={controls}
+          preload="metadata"
           onLoadedMetadata={handleLoadedMetadata}
           onTimeUpdate={handleTimeUpdate}
           onPlay={handlePlay}
