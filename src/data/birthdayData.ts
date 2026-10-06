@@ -38,6 +38,7 @@ export const initialBirthdayData = {
 
   // Page 1: Hero
   heroPhoto: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1600&q=80",
+  heroCenterPhoto: "/photos/cover1.jpeg",
   heroVideoUrl: "/videos/wish01.mp4",
   bgAudioUrl: "/audio/happy-birthday.mp3",
   bgSongTitle: "Happy Birthday Tune 🎉",

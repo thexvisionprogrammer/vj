@@ -57,18 +57,26 @@ export const App: React.FC = () => {
   const handleSaveSettings = (newData: {
     partnerName: string;
     heroPhoto: string;
+    heroCenterPhoto?: string | string[];
     heroVideoUrl?: string;
     bgAudioUrl: string;
     voiceNoteAudioUrl: string;
   }) => {
-    setData((prev) => ({
-      ...prev,
-      partnerName: newData.partnerName,
-      heroPhoto: newData.heroPhoto,
-      heroVideoUrl: newData.heroVideoUrl || prev.heroVideoUrl,
-      bgAudioUrl: newData.bgAudioUrl,
-      voiceNoteAudioUrl: newData.voiceNoteAudioUrl,
-    }));
+    setData((prev) => {
+      const centerPhotoStr = Array.isArray(newData.heroCenterPhoto)
+        ? newData.heroCenterPhoto.join(', ')
+        : newData.heroCenterPhoto ?? prev.heroCenterPhoto;
+
+      return {
+        ...prev,
+        partnerName: newData.partnerName,
+        heroPhoto: newData.heroPhoto,
+        heroCenterPhoto: centerPhotoStr,
+        heroVideoUrl: newData.heroVideoUrl || prev.heroVideoUrl,
+        bgAudioUrl: newData.bgAudioUrl,
+        voiceNoteAudioUrl: newData.voiceNoteAudioUrl,
+      };
+    });
     if (newData.bgAudioUrl !== currentTrackUrl) {
       setCurrentTrackUrl(newData.bgAudioUrl);
     }
@@ -82,6 +90,7 @@ export const App: React.FC = () => {
             partnerName={data.partnerName}
             tagline={data.tagline}
             heroPhoto={data.heroPhoto}
+            heroCenterPhoto={data.heroCenterPhoto}
             heroVideoUrl={data.heroVideoUrl}
             bgSongTitle={currentTrackTitle}
             onNext={() => setCurrentPage(1)}
@@ -226,6 +235,7 @@ export const App: React.FC = () => {
         onClose={() => setIsSettingsOpen(false)}
         partnerName={data.partnerName}
         heroPhoto={data.heroPhoto}
+        heroCenterPhoto={data.heroCenterPhoto}
         heroVideoUrl={data.heroVideoUrl}
         bgAudioUrl={data.bgAudioUrl}
         voiceNoteAudioUrl={data.voiceNoteAudioUrl}

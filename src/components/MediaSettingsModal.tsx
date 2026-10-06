@@ -6,12 +6,14 @@ interface MediaSettingsModalProps {
   onClose: () => void;
   partnerName: string;
   heroPhoto: string;
+  heroCenterPhoto?: string | string[];
   heroVideoUrl?: string;
   bgAudioUrl: string;
   voiceNoteAudioUrl: string;
   onSave: (newData: {
     partnerName: string;
     heroPhoto: string;
+    heroCenterPhoto?: string | string[];
     heroVideoUrl?: string;
     bgAudioUrl: string;
     voiceNoteAudioUrl: string;
@@ -23,13 +25,19 @@ export const MediaSettingsModal: React.FC<MediaSettingsModalProps> = ({
   onClose,
   partnerName,
   heroPhoto,
+  heroCenterPhoto = "/photos/cover1.jpeg",
   heroVideoUrl = "/videos/video1.mp4",
   bgAudioUrl,
   voiceNoteAudioUrl,
   onSave,
 }) => {
+  const initialCenterStr = Array.isArray(heroCenterPhoto)
+    ? heroCenterPhoto.join(', ')
+    : heroCenterPhoto || "/photos/cover1.jpeg";
+
   const [name, setName] = useState(partnerName);
   const [photo, setPhoto] = useState(heroPhoto);
+  const [centerPhoto, setCenterPhoto] = useState(initialCenterStr);
   const [video, setVideo] = useState(heroVideoUrl);
   const [audio, setAudio] = useState(bgAudioUrl);
   const [voiceAudio, setVoiceAudio] = useState(voiceNoteAudioUrl);
@@ -39,9 +47,14 @@ export const MediaSettingsModal: React.FC<MediaSettingsModalProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const parsedCenterPhoto = centerPhoto.includes(',')
+      ? centerPhoto.split(',').map((s) => s.trim()).filter(Boolean)
+      : centerPhoto.trim();
+
     onSave({
       partnerName: name,
       heroPhoto: photo,
+      heroCenterPhoto: parsedCenterPhoto,
       heroVideoUrl: video,
       bgAudioUrl: audio,
       voiceNoteAudioUrl: voiceAudio,
@@ -97,6 +110,37 @@ export const MediaSettingsModal: React.FC<MediaSettingsModalProps> = ({
               onChange={(e) => setPhoto(e.target.value)}
               className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-slate-100 focus:outline-none focus:border-pink-500"
             />
+          </div>
+
+          <div>
+            <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1">
+              <Image className="w-3.5 h-3.5 text-pink-400" /> Hero Center Photo URL (Page 1 Center)
+            </label>
+            <input
+              type="text"
+              value={centerPhoto}
+              onChange={(e) => setCenterPhoto(e.target.value)}
+              placeholder="/photos/cover1.jpeg"
+              className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-slate-100 focus:outline-none focus:border-pink-500"
+            />
+            {/* Quick preset buttons */}
+            <div className="flex flex-wrap gap-1.5 mt-2">
+              <span className="text-[10px] text-slate-400 self-center mr-1">Quick Select:</span>
+              {['/photos/cover1.jpeg', '/photos/photo10.jpeg', '/photos/photo2.jpeg', '/photos/photo9.jpeg'].map((preset) => (
+                <button
+                  key={preset}
+                  type="button"
+                  onClick={() => setCenterPhoto(preset)}
+                  className={`text-[10px] px-2 py-0.5 rounded-md border transition-colors ${
+                    centerPhoto === preset
+                      ? 'bg-pink-500/20 border-pink-400 text-pink-300'
+                      : 'bg-slate-800 border-slate-700 text-slate-300 hover:border-slate-500'
+                  }`}
+                >
+                  {preset.split('/').pop()}
+                </button>
+              ))}
+            </div>
           </div>
 
           <div>
