@@ -281,14 +281,14 @@ export const initialBirthdayData = {
       title: "Dear VijayLaxmi (Cutu) ❤️: Tum Meri Zindagi Ka Sabse Sundar Tohfa Ho",
       date: "September 7, 2026",
       language: "Hindi" as const,
-      content: `Pyaari VijayLaxmi (Cutu) ❤️,\n\nAaj tumhare is khaas din par main bas itna kehna chahta hoon ki tum meri zindagi ka sabse khoobsurat hissa ho. Jab se tum aayi ho, har mausam romantic aur har din ek naye jashn jaisa lagta hai.\n\nKali Activa ki rides se lekar Kainchi Dham ki khoobsurat yatra tak, har rasta tumhare saath ek haseen safar ban gaya. Tumhari muskurahat meri sabse badi taakat hai. Happy Birthday, my Cutu! ❤️`
+      content: `Pyaari VijayLaxmi (Cutu) ❤️,\n\nAaj tumhare is khaas din par main bas itna kehna chahta hoon ki tum meri zindagi ka sabse khoobsurat hissa ho. Jab se tum aayi ho, har mausam romantic aur har din ek naye jashn jaisa lagta hai.\n\ncar and bike rides se lekar Kainchi Dham ki khoobsurat yatra tak, har rasta tumhare saath ek haseen safar ban gaya. Tumhari muskurahat meri sabse badi taakat hai. Happy Birthday, my Cutu! ❤️`
     },
     {
       id: 2,
       title: "To My Forever Partner In Crime",
       date: "Birthday Special Note",
       language: "English" as const,
-      content: `My Dearest VijayLaxmi (Cutu) ❤️,\n\nHappy Birthday! Thank you for being my anchor, my favorite photographer, my car date DJ, and my best friend. Looking back at all our memories—our food experiments, driving trips, and endless laughter—I realize how blessed I am to walk through life with you.\n\nMay this new year bring you infinite joy, success, and endless laughter. I promise to hold your hand through every high and low. Yours forever!`
+      content: `My Dearest VijayLaxmi (Cutu) ❤️,\n\nHappy Birthday! Thank you for being my anchor, my favorite photographer, my car date VJ, and my best friend. Looking back at all our memories—our food experiments, driving trips, and endless laughter—I realize how blessed I am to walk through life with you.\n\nMay this new year bring you infinite joy, success, and endless laughter. I promise to hold your hand through every high and low. Yours forever!`
     }
   ],
 
