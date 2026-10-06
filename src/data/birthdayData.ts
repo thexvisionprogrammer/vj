@@ -38,7 +38,7 @@ export const initialBirthdayData = {
 
   // Page 1: Hero
   heroPhoto: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1600&q=80",
-  heroCenterPhoto: "/photos/cover1.jpeg",
+  heroCenterPhoto: "/photos/photo24.jpeg",
   heroVideoUrl: "/videos/wish01.mp4",
   bgAudioUrl: "/audio/happy-birthday.mp3",
   bgSongTitle: "Happy Birthday Tune 🎉",
@@ -179,16 +179,16 @@ export const initialBirthdayData = {
       "/videos/video5.mp4"
     ],
     playlist: [
-      { id: 1, title: "Dooron Dooron", artist: "Paresh / Smooth Vibes", albumArt: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=300&q=80", duration: "3:42", audioUrl: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" },
-      { id: 2, title: "Tum Se Hi", artist: "Pritam, Mohit Chauhan", albumArt: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=300&q=80", duration: "5:23", audioUrl: "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a70514.mp3" },
-      { id: 3, title: "Pasoori", artist: "Ali Sethi, Shae Gill", albumArt: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=300&q=80", duration: "3:44" },
-      { id: 4, title: "Kesariya", artist: "Arijit Singh", albumArt: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=300&q=80", duration: "4:28" },
-      { id: 5, title: "Night Changes", artist: "One Direction", albumArt: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=300&q=80", duration: "3:46" },
-      { id: 6, title: "Apna Bana Le", artist: "Arijit Singh", albumArt: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=300&q=80", duration: "4:21" },
-      { id: 7, title: "Perfect", artist: "Ed Sheeran", albumArt: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=300&q=80", duration: "4:23" },
-      { id: 8, title: "Ranjha", artist: "B Praak, Jasleen Royal", albumArt: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&w=300&q=80", duration: "3:48" },
-      { id: 9, title: "Choo Lo", artist: "The Local Train", albumArt: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=300&q=80", duration: "3:53" },
-      { id: 10, title: "Softly", artist: "Karan Aujla", albumArt: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=300&q=80", duration: "2:36" }
+      { id: 1, title: "Dooron Dooron", artist: "Paresh / Smooth Vibes", albumArt: "/photos/photo12.jpeg", duration: "3:42", audioUrl: "/audio/dooron.mpeg" },
+      { id: 2, title: "Bairan", artist: "Banjare", albumArt: "/photos/photo27.jpeg", duration: "5:23", audioUrl: "/audio/bairan.mpeg" },
+      { id: 3, title: "good luck charm", artist: "Ali Sethi, Shae Gill", albumArt: "/photos/photo10.jpeg", duration: "3:44", audioUrl: "/audio/goodluckcharm.mpeg" }
+      //{ id: 4, title: "Kesariya", artist: "Arijit Singh", albumArt: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=300&q=80", duration: "4:28" },
+      //{ id: 5, title: "harriya", artist: "One Direction", albumArt: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=300&q=80", duration: "3:46" },
+      // { id: 6, title: "Apna Bana Le", artist: "Arijit Singh", albumArt: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=300&q=80", duration: "4:21" },
+      // { id: 7, title: "Perfect", artist: "Ed Sheeran", albumArt: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=300&q=80", duration: "4:23" },
+      //{ id: 8, title: "Ranjha", artist: "B Praak, Jasleen Royal", albumArt: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&w=300&q=80", duration: "3:48" },
+      //{ id: 9, title: "Choo Lo", artist: "The Local Train", albumArt: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=300&q=80", duration: "3:53" },
+      //{ id: 10, title: "Softly", artist: "Karan Aujla", albumArt: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=300&q=80", duration: "2:36" }
     ]
   },
 
@@ -198,19 +198,19 @@ export const initialBirthdayData = {
     subtitle: "The way to the heart is through great food!",
     photos: [
       {
-        url: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
-        dish: "Home Cooked Italian Pasta",
-        note: "The time we tried making handmade pasta and burnt the garlic, but it still tasted divine!"
+        url: "/photos/photo28.jpeg",
+        dish: "Home Cooked noodles",
+        note: "The time we tried making handmade noodles and burnt the garlic, but it still tasted divine!"
       },
       {
-        url: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80",
-        dish: "Late Night Pizza Cravings",
-        note: "Extra cheese, zero regrets, and fighting for the last slice!"
+        url: "/photos/photo22.jpeg",
+        dish: "ice cream Cravings",
+        note: "Extra cream, zero regrets, and fighting for the last slice!"
       },
       {
-        url: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80",
-        dish: "Birthday Desserts & Waffles",
-        note: "Your sweet tooth is unmatched, and watching you eat desserts brings pure joy."
+        url: "/photos/photo23.jpeg",
+        dish: "maggie and you ",
+        note: "Your sweet tooth is unmatched, and watching you eat maggie brings pure joy."
       }
     ],
     note: "Cooking for you or exploring new food spots together always turns into our happiest ritual. You make every meal feel like a royal feast!"

@@ -49,9 +49,9 @@ export const Page1Home: React.FC<Page1HomeProps> = ({
 
   const availablePhotos = [
     ...photoList.map((url, idx) => ({ url, label: `Featured ${idx + 1}` })),
-    { url: "/photos/cover1.jpeg", label: "Cover" },
-    { url: "/photos/photo10.jpeg", label: "Photo 10" },
-    { url: "/photos/photo2.jpeg", label: "Photo 2" },
+    { url: "/photos/photo24.jpeg", label: "Cover" },
+    { url: "/photos/photo25.jpeg", label: "Photo 10" },
+    { url: "/photos/photo26.jpeg", label: "Photo 2" },
     { url: "/photos/photo9.jpeg", label: "Photo 9" },
     { url: "/photos/photo8.jpeg", label: "Photo 8" },
   ].filter((item, index, self) => index === self.findIndex((t) => t.url === item.url));
@@ -126,8 +126,8 @@ export const Page1Home: React.FC<Page1HomeProps> = ({
             type="button"
             onClick={() => setActiveTab('photo')}
             className={`flex items-center gap-2 px-4 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${activeTab === 'photo'
-                ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-lg shadow-pink-500/30 scale-105'
-                : 'text-slate-300 hover:text-white hover:bg-white/5'
+              ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-lg shadow-pink-500/30 scale-105'
+              : 'text-slate-300 hover:text-white hover:bg-white/5'
               }`}
           >
             <ImageIcon className="w-4 h-4" />
@@ -138,8 +138,8 @@ export const Page1Home: React.FC<Page1HomeProps> = ({
             type="button"
             onClick={() => setActiveTab('video')}
             className={`flex items-center gap-2 px-4 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${activeTab === 'video'
-                ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-lg shadow-pink-500/30 scale-105'
-                : 'text-slate-300 hover:text-white hover:bg-white/5'
+              ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-lg shadow-pink-500/30 scale-105'
+              : 'text-slate-300 hover:text-white hover:bg-white/5'
               }`}
           >
             <Film className="w-4 h-4" />
@@ -150,8 +150,8 @@ export const Page1Home: React.FC<Page1HomeProps> = ({
             type="button"
             onClick={() => setActiveTab('both')}
             className={`flex items-center gap-2 px-4 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${activeTab === 'both'
-                ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-lg shadow-pink-500/30 scale-105'
-                : 'text-slate-300 hover:text-white hover:bg-white/5'
+              ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-lg shadow-pink-500/30 scale-105'
+              : 'text-slate-300 hover:text-white hover:bg-white/5'
               }`}
           >
             <Layers className="w-4 h-4" />
@@ -217,8 +217,8 @@ export const Page1Home: React.FC<Page1HomeProps> = ({
                       type="button"
                       onClick={() => setSelectedPhoto(item.url)}
                       className={`px-3 py-1 rounded-lg text-[11px] font-semibold transition-all cursor-pointer whitespace-nowrap ${selectedPhoto === item.url
-                          ? 'bg-pink-500 text-white shadow-md shadow-pink-500/30 ring-1 ring-pink-300'
-                          : 'bg-white/5 text-slate-300 hover:bg-white/15 hover:text-white border border-white/10'
+                        ? 'bg-pink-500 text-white shadow-md shadow-pink-500/30 ring-1 ring-pink-300'
+                        : 'bg-white/5 text-slate-300 hover:bg-white/15 hover:text-white border border-white/10'
                         }`}
                     >
                       {item.label}
