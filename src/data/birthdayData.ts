@@ -306,7 +306,7 @@ export const initialBirthdayData = {
   virtualCake: {
     title: "Make a Wish & Blow The Candles! 🕯️🎂",
     instructions: "Click on the candles or blow into your microphone to extinguish the flames!",
-    videoWishUrl: "https://assets.mixkit.co/videos/preview/mixkit-hands-holding-a-sparkler-firework-41604-large.mp4",
+    videoWishUrl: "/videos/video16.mp4",
     finalMessage: "Happy Birthday VijayLaxmi (Cutu) ❤️! May all your secret wishes come true today and forever! ❤️🎉"
   },
 

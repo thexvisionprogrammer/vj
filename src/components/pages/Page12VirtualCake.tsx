@@ -187,6 +187,7 @@ export const Page12VirtualCake: React.FC<Page12VirtualCakeProps> = ({
                   src={virtualCake.videoWishUrl}
                   controls={true}
                   autoPlay={true}
+                  muted={false}
                   loop={true}
                   showFitToggle={true}
                 />
