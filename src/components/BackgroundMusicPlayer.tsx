@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
+import { unlockIOSAudio } from '../utils/iosAudioUnlock';
 
 interface BackgroundMusicPlayerProps {
   currentTrackUrl: string;
@@ -12,6 +13,11 @@ export const BackgroundMusicPlayer: React.FC<BackgroundMusicPlayerProps> = ({
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const prevTrackUrlRef = useRef<string>('');
   const [isUserMuted, setIsUserMuted] = useState(false);
+
+  // Initialize iOS Audio Unlocker on mount
+  useEffect(() => {
+    unlockIOSAudio();
+  }, []);
 
   // Check if any other video or audio element on the page is playing with sound
   const isOtherMediaPlaying = (): boolean => {
@@ -42,9 +48,12 @@ export const BackgroundMusicPlayer: React.FC<BackgroundMusicPlayerProps> = ({
       }
     } else {
       if (audioRef.current.paused) {
-        audioRef.current.play().catch(() => {
-          // Will play on user interaction if blocked by autoplay policy
-        });
+        const playPromise = audioRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            // Silently caught on iOS until first user interaction unlocks it
+          });
+        }
       }
     }
   };
@@ -67,6 +76,7 @@ export const BackgroundMusicPlayer: React.FC<BackgroundMusicPlayerProps> = ({
 
     // Browser autoplay policy handler: play on first user interaction if blocked initially
     const handleUserInteraction = () => {
+      unlockIOSAudio();
       syncPlaybackState();
     };
 
@@ -74,34 +84,32 @@ export const BackgroundMusicPlayer: React.FC<BackgroundMusicPlayerProps> = ({
     window.addEventListener('pointerdown', handleUserInteraction);
     window.addEventListener('keydown', handleUserInteraction);
     window.addEventListener('touchstart', handleUserInteraction);
+    window.addEventListener('touchend', handleUserInteraction);
 
     // Global capture listeners for media play, pause, ended events across all pages
     const handleMediaEvent = () => {
-      setTimeout(syncPlaybackState, 50);
+      setTimeout(syncPlaybackState, 100);
     };
 
     document.addEventListener('play', handleMediaEvent, true);
     document.addEventListener('pause', handleMediaEvent, true);
     document.addEventListener('ended', handleMediaEvent, true);
 
-    // Interval safety net to handle modal unmounts, page changes, etc.
-    const interval = setInterval(syncPlaybackState, 400);
-
     return () => {
       window.removeEventListener('click', handleUserInteraction);
       window.removeEventListener('pointerdown', handleUserInteraction);
       window.removeEventListener('keydown', handleUserInteraction);
       window.removeEventListener('touchstart', handleUserInteraction);
+      window.removeEventListener('touchend', handleUserInteraction);
 
       document.removeEventListener('play', handleMediaEvent, true);
       document.removeEventListener('pause', handleMediaEvent, true);
       document.removeEventListener('ended', handleMediaEvent, true);
-
-      clearInterval(interval);
     };
   }, [isUserMuted]);
 
   const toggleMute = () => {
+    unlockIOSAudio();
     setIsUserMuted((prev) => !prev);
   };
 
@@ -112,6 +120,8 @@ export const BackgroundMusicPlayer: React.FC<BackgroundMusicPlayerProps> = ({
         src={currentTrackUrl}
         loop
         preload="auto"
+        playsInline
+        aria-hidden="true"
         className="hidden"
       />
 

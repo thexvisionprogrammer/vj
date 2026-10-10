@@ -44,7 +44,7 @@ export const initialBirthdayData = {
   bgSongTitle: "Happy Birthday Tune 🎉",
 
   // Page 2: Voice Note
-  voiceNoteAudioUrl: "audio/bdaynote.mpeg",
+  voiceNoteAudioUrl: "/audio/bdaynote.mpeg",
   voiceNoteTitle: "A Message From My Heart ❤️",
   voiceNoteDuration: "1:45",
   voiceNoteMessage: "Agar tum soch rahi ho ki maine ye sab kyun kiya—tumhare liye khana banana, drives ki planning, apna favorite gaana lagana, aur ye itna lamba sa note likhna... toh sach bataun? Isme mera ek chhota sa swarth (selfishness) chhipa hai.Main bohot laalchi hoon jab baat tumhari aati hai. Mujhe bas tumhare chehre ki wo sukoon wali smile dekhni thi jab tum ye sab dekhogi. Mujhe tumhari aankhon mein wo chamak dekhni thi jo mujhe batati hai ki main tumhare liye kya maayne rakhta hoon. Tumne meri aam si zindagi mein itna sukoon bhar diya hai ki ab mera dil karta hai main apni saari umar sirf is koshish mein nikaal doon ki main tumhe kaise aur zyada khush rakh sakun. Ye sab jo maine kiya, ye bas ek zariya tha tumhe ye ehsaas dilane ka ki tum us pyaar ko deserve karti ho jisme koi tumhe is tarah chahe, jaise tum is duniya ki sabse keemti aur aakhri cheez ho",

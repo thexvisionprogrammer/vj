@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Play, Pause, Music, Disc, Heart, Car, Image as ImageIcon } from 'lucide-react';
 import type { Song } from '../../data/birthdayData';
 import { SmartVideoPlayer } from '../SmartVideoPlayer';
+import { unlockIOSAudio } from '../../utils/iosAudioUnlock';
 
 interface Page6CarDatesPlaylistProps {
   drivingDates: {
@@ -35,6 +36,7 @@ export const Page6CarDatesPlaylist: React.FC<Page6CarDatesPlaylistProps> = ({
   const [isPlaying, setIsPlaying] = useState(false);
 
   const handleSelectSong = (song: Song) => {
+    unlockIOSAudio();
     setActiveSong(song);
     setIsPlaying(true);
     if (onPlayTrack && song.audioUrl) {

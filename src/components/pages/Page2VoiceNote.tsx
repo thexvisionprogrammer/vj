@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Mic, Play, Pause, Sparkles } from 'lucide-react';
+import { unlockIOSAudio } from '../../utils/iosAudioUnlock';
 
 interface Page2VoiceNoteProps {
   partnerName: string;
@@ -23,11 +24,20 @@ export const Page2VoiceNote: React.FC<Page2VoiceNoteProps> = ({
 
   const togglePlay = () => {
     if (!audioRef.current) return;
+    unlockIOSAudio();
     if (isPlaying) {
       audioRef.current.pause();
       setIsPlaying(false);
     } else {
-      audioRef.current.play().then(() => setIsPlaying(true)).catch(console.error);
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => setIsPlaying(true))
+          .catch((err) => {
+            console.error("Audio playback error on iOS:", err);
+            setIsPlaying(false);
+          });
+      }
     }
   };
 
@@ -60,6 +70,8 @@ export const Page2VoiceNote: React.FC<Page2VoiceNoteProps> = ({
       <audio
         ref={audioRef}
         src={voiceNoteAudioUrl}
+        preload="auto"
+        playsInline
         onTimeUpdate={handleTimeUpdate}
         onEnded={() => setIsPlaying(false)}
       />

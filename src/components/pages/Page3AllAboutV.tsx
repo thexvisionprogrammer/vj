@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Heart, Sparkles, Crown, Play, Pause, Headphones } from 'lucide-react';
+import { unlockIOSAudio } from '../../utils/iosAudioUnlock';
 
 interface PhotoItem {
   url: string;
@@ -64,11 +65,20 @@ export const Page3AllAboutV: React.FC<Page3AllAboutVProps> = ({ partnerName, abo
 
   const toggleAudio = () => {
     if (!audioRef.current) return;
+    unlockIOSAudio();
     if (isAudioPlaying) {
       audioRef.current.pause();
       setIsAudioPlaying(false);
     } else {
-      audioRef.current.play().then(() => setIsAudioPlaying(true)).catch(console.error);
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => setIsAudioPlaying(true))
+          .catch((err) => {
+            console.error("Audio playback error on iOS:", err);
+            setIsAudioPlaying(false);
+          });
+      }
     }
   };
 
@@ -211,6 +221,8 @@ export const Page3AllAboutV: React.FC<Page3AllAboutVProps> = ({ partnerName, abo
               <audio
                 ref={audioRef}
                 src={knowYouAudioUrl}
+                preload="auto"
+                playsInline
                 onTimeUpdate={handleTimeUpdate}
                 onEnded={() => setIsAudioPlaying(false)}
               />

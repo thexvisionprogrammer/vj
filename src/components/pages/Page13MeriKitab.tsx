@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BookOpen, Sparkles, Heart, Maximize2, X, ChevronLeft, ChevronRight, Image as ImageIcon, Play, Pause, Mic, Video, Music } from 'lucide-react';
+import { unlockIOSAudio } from '../../utils/iosAudioUnlock';
 
 import { SmartVideoPlayer } from '../SmartVideoPlayer';
 
@@ -88,11 +89,20 @@ export const Page13MeriKitab: React.FC<Page13MeriKitabProps> = ({
 
   const toggleLocalPlay = () => {
     if (!localAudioRef.current) return;
+    unlockIOSAudio();
     if (isPlayingAudio) {
       localAudioRef.current.pause();
       setIsPlayingAudio(false);
     } else {
-      localAudioRef.current.play().then(() => setIsPlayingAudio(true)).catch(console.error);
+      const playPromise = localAudioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => setIsPlayingAudio(true))
+          .catch((err) => {
+            console.error("Audio playback error on iOS:", err);
+            setIsPlayingAudio(false);
+          });
+      }
     }
   };
 
@@ -198,6 +208,8 @@ export const Page13MeriKitab: React.FC<Page13MeriKitabProps> = ({
             <audio
               ref={localAudioRef}
               src={meriKitab.bgMusicUrl}
+              preload="auto"
+              playsInline
               onTimeUpdate={handleAudioTimeUpdate}
               onEnded={() => setIsPlayingAudio(false)}
             />
@@ -552,6 +564,8 @@ export const Page13MeriKitab: React.FC<Page13MeriKitabProps> = ({
                 <audio
                   ref={modalAudioRef}
                   src={activeModalSection.audioUrl}
+                  preload="auto"
+                  playsInline
                   onTimeUpdate={() => {
                     if (modalAudioRef.current) {
                       setModalAudioTime(modalAudioRef.current.currentTime);
@@ -581,11 +595,20 @@ export const Page13MeriKitab: React.FC<Page13MeriKitabProps> = ({
                   <button
                     onClick={() => {
                       if (!modalAudioRef.current) return;
+                      unlockIOSAudio();
                       if (isPlayingModalAudio) {
                         modalAudioRef.current.pause();
                         setIsPlayingModalAudio(false);
                       } else {
-                        modalAudioRef.current.play().then(() => setIsPlayingModalAudio(true)).catch(console.error);
+                        const playPromise = modalAudioRef.current.play();
+                        if (playPromise !== undefined) {
+                          playPromise
+                            .then(() => setIsPlayingModalAudio(true))
+                            .catch((err) => {
+                              console.error("Modal audio error on iOS:", err);
+                              setIsPlayingModalAudio(false);
+                            });
+                        }
                       }
                     }}
                     className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-900 to-rose-900 hover:opacity-95 text-amber-100 font-bold text-xs shadow transition-all flex-shrink-0"

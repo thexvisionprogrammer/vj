@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Mountain, Compass, Snowflake, MapPin, Play, Pause, Headphones, Sparkles } from 'lucide-react';
+import { unlockIOSAudio } from '../../utils/iosAudioUnlock';
 
 interface MountainMemory {
   title: string;
@@ -35,11 +36,20 @@ export const Page4MountainDiaries: React.FC<Page4MountainDiariesProps> = ({ moun
 
   const toggleAudio = () => {
     if (!audioRef.current) return;
+    unlockIOSAudio();
     if (isPlaying) {
       audioRef.current.pause();
       setIsPlaying(false);
     } else {
-      audioRef.current.play().then(() => setIsPlaying(true)).catch(console.error);
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => setIsPlaying(true))
+          .catch((err) => {
+            console.error("Audio playback error on iOS:", err);
+            setIsPlaying(false);
+          });
+      }
     }
   };
 
@@ -181,6 +191,8 @@ export const Page4MountainDiaries: React.FC<Page4MountainDiariesProps> = ({ moun
               <audio
                 ref={audioRef}
                 src={audioUrl}
+                preload="auto"
+                playsInline
                 onTimeUpdate={handleTimeUpdate}
                 onEnded={() => setIsPlaying(false)}
               />
