@@ -41,7 +41,9 @@ export const initialBirthdayData = {
   heroCenterPhoto: "/photos/photo24.jpeg",
   heroVideoUrl: "/videos/wish01.mp4",
   bgAudioUrl: "/audio/happy-birthday.mp3",
-  bgSongTitle: "Happy Birthday   // Page 2: Voice Note
+  bgSongTitle: "Happy Birthday Tune 🎉",
+
+  // Page 2: Voice Note
   voiceNoteAudioUrl: "/audio/bdaynote.mp3",
   voiceNoteTitle: "A Message From My Heart ❤️",
   voiceNoteDuration: "1:45",
@@ -180,15 +182,6 @@ export const initialBirthdayData = {
       { id: 1, title: "Dooron Dooron", artist: "Paresh / Smooth Vibes", albumArt: "/photos/photo12.jpeg", duration: "3:42", audioUrl: "/audio/dooron.mp3" },
       { id: 2, title: "Bairan", artist: "Banjare", albumArt: "/photos/photo27.jpeg", duration: "5:23", audioUrl: "/audio/bairan.mp3" },
       { id: 3, title: "good luck charm", artist: "Ali Sethi, Shae Gill", albumArt: "/photos/photo10.jpeg", duration: "3:44", audioUrl: "/audio/goodluckcharm.mp3" }
-    ]
-  },albumArt: "/photos/photo10.jpeg", duration: "3:44", audioUrl: "/audio/goodluckcharm.mpeg" }
-      //{ id: 4, title: "Kesariya", artist: "Arijit Singh", albumArt: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=300&q=80", duration: "4:28" },
-      //{ id: 5, title: "harriya", artist: "One Direction", albumArt: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=300&q=80", duration: "3:46" },
-      // { id: 6, title: "Apna Bana Le", artist: "Arijit Singh", albumArt: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=300&q=80", duration: "4:21" },
-      // { id: 7, title: "Perfect", artist: "Ed Sheeran", albumArt: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=300&q=80", duration: "4:23" },
-      //{ id: 8, title: "Ranjha", artist: "B Praak, Jasleen Royal", albumArt: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&w=300&q=80", duration: "3:48" },
-      //{ id: 9, title: "Choo Lo", artist: "The Local Train", albumArt: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=300&q=80", duration: "3:53" },
-      //{ id: 10, title: "Softly", artist: "Karan Aujla", albumArt: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=300&q=80", duration: "2:36" }
     ]
   },
 
