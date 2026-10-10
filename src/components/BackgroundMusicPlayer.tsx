@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
-import { unlockIOSAudio } from '../utils/iosAudioUnlock';
+import { unlockIOSAudio, safePlayMedia } from '../utils/iosAudioUnlock';
 
 interface BackgroundMusicPlayerProps {
   currentTrackUrl: string;
@@ -48,12 +48,7 @@ export const BackgroundMusicPlayer: React.FC<BackgroundMusicPlayerProps> = ({
       }
     } else {
       if (audioRef.current.paused) {
-        const playPromise = audioRef.current.play();
-        if (playPromise !== undefined) {
-          playPromise.catch(() => {
-            // Silently caught on iOS until first user interaction unlocks it
-          });
-        }
+        safePlayMedia(audioRef.current).catch(() => {});
       }
     }
   };

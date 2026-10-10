@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Heart, Sparkles, Crown, Play, Pause, Headphones } from 'lucide-react';
-import { unlockIOSAudio } from '../../utils/iosAudioUnlock';
+import { unlockIOSAudio, safePlayMedia } from '../../utils/iosAudioUnlock';
 
 interface PhotoItem {
   url: string;
@@ -61,7 +61,7 @@ export const Page3AllAboutV: React.FC<Page3AllAboutVProps> = ({ partnerName, abo
   const knowYouPhotos = knowYouData.photos && knowYouData.photos.length > 0
     ? knowYouData.photos
     : defaultKnowYouPhotos;
-  const knowYouAudioUrl = knowYouData.audioUrl || "/audio/note1.mpeg";
+  const knowYouAudioUrl = knowYouData.audioUrl || "/audio/note1.mp3";
 
   const toggleAudio = () => {
     if (!audioRef.current) return;
@@ -70,15 +70,12 @@ export const Page3AllAboutV: React.FC<Page3AllAboutVProps> = ({ partnerName, abo
       audioRef.current.pause();
       setIsAudioPlaying(false);
     } else {
-      const playPromise = audioRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => setIsAudioPlaying(true))
-          .catch((err) => {
-            console.error("Audio playback error on iOS:", err);
-            setIsAudioPlaying(false);
-          });
-      }
+      safePlayMedia(audioRef.current)
+        .then(() => setIsAudioPlaying(true))
+        .catch((err) => {
+          console.error("Audio playback error on iOS:", err);
+          setIsAudioPlaying(false);
+        });
     }
   };
 

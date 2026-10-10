@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Mountain, Compass, Snowflake, MapPin, Play, Pause, Headphones, Sparkles } from 'lucide-react';
-import { unlockIOSAudio } from '../../utils/iosAudioUnlock';
+import { unlockIOSAudio, safePlayMedia } from '../../utils/iosAudioUnlock';
 
 interface MountainMemory {
   title: string;
@@ -30,7 +30,7 @@ export const Page4MountainDiaries: React.FC<Page4MountainDiariesProps> = ({ moun
   const [duration, setDuration] = useState(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const audioUrl = mountainDiaries.audioUrl || "/audio/humarimulakat.mpeg";
+  const audioUrl = mountainDiaries.audioUrl || "/audio/humarimulakat.mp3";
   const audioTitle = mountainDiaries.audioTitle || "Kaichi Dham Audio Note 🕉️";
   const audioDuration = mountainDiaries.audioDuration || "2:45";
 
@@ -41,15 +41,12 @@ export const Page4MountainDiaries: React.FC<Page4MountainDiariesProps> = ({ moun
       audioRef.current.pause();
       setIsPlaying(false);
     } else {
-      const playPromise = audioRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => setIsPlaying(true))
-          .catch((err) => {
-            console.error("Audio playback error on iOS:", err);
-            setIsPlaying(false);
-          });
-      }
+      safePlayMedia(audioRef.current)
+        .then(() => setIsPlaying(true))
+        .catch((err) => {
+          console.error("Audio playback error on iOS:", err);
+          setIsPlaying(false);
+        });
     }
   };
 

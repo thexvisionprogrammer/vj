@@ -41,10 +41,8 @@ export const initialBirthdayData = {
   heroCenterPhoto: "/photos/photo24.jpeg",
   heroVideoUrl: "/videos/wish01.mp4",
   bgAudioUrl: "/audio/happy-birthday.mp3",
-  bgSongTitle: "Happy Birthday Tune 🎉",
-
-  // Page 2: Voice Note
-  voiceNoteAudioUrl: "/audio/bdaynote.mpeg",
+  bgSongTitle: "Happy Birthday   // Page 2: Voice Note
+  voiceNoteAudioUrl: "/audio/bdaynote.mp3",
   voiceNoteTitle: "A Message From My Heart ❤️",
   voiceNoteDuration: "1:45",
   voiceNoteMessage: "Agar tum soch rahi ho ki maine ye sab kyun kiya—tumhare liye khana banana, drives ki planning, apna favorite gaana lagana, aur ye itna lamba sa note likhna... toh sach bataun? Isme mera ek chhota sa swarth (selfishness) chhipa hai.Main bohot laalchi hoon jab baat tumhari aati hai. Mujhe bas tumhare chehre ki wo sukoon wali smile dekhni thi jab tum ye sab dekhogi. Mujhe tumhari aankhon mein wo chamak dekhni thi jo mujhe batati hai ki main tumhare liye kya maayne rakhta hoon. Tumne meri aam si zindagi mein itna sukoon bhar diya hai ki ab mera dil karta hai main apni saari umar sirf is koshish mein nikaal doon ki main tumhe kaise aur zyada khush rakh sakun. Ye sab jo maine kiya, ye bas ek zariya tha tumhe ye ehsaas dilane ka ki tum us pyaar ko deserve karti ho jisme koi tumhe is tarah chahe, jaise tum is duniya ki sabse keemti aur aakhri cheez ho",
@@ -78,7 +76,7 @@ export const initialBirthdayData = {
     knowYou: {
       title: "Mujhe JAnna hai tumhe (i want to know you)",
       subtitle: "Har choti baat tumhare baare mein mere dil ke kareeb hai ✨",
-      audioUrl: "/audio/knowyou.mpeg",
+      audioUrl: "/audio/knowyou.mp3",
       audioTitle: "Audio Note for Cutu ❤️",
       audioDuration: "2:15",
       photos: [
@@ -114,7 +112,7 @@ export const initialBirthdayData = {
     heroImage: "/photos/photo6.jpeg",
     videoLoopUrl: "https://assets.mixkit.co/videos/preview/mixkit-snowy-mountain-landscape-3406-large.mp4",
     altitudeText: "NEEM KAROLI BABA ASHRAM, NAINITAL 🕉️",
-    audioUrl: "/audio/Kaichidham.mpeg",
+    audioUrl: "/audio/Kaichidham.mp3",
     audioTitle: "Kaichi Dham Audio Note & Divine Memories 🕉️",
     audioDuration: "2:45",
     memories: [
@@ -179,9 +177,11 @@ export const initialBirthdayData = {
       "/videos/video5.mp4"
     ],
     playlist: [
-      { id: 1, title: "Dooron Dooron", artist: "Paresh / Smooth Vibes", albumArt: "/photos/photo12.jpeg", duration: "3:42", audioUrl: "/audio/dooron.mpeg" },
-      { id: 2, title: "Bairan", artist: "Banjare", albumArt: "/photos/photo27.jpeg", duration: "5:23", audioUrl: "/audio/bairan.mpeg" },
-      { id: 3, title: "good luck charm", artist: "Ali Sethi, Shae Gill", albumArt: "/photos/photo10.jpeg", duration: "3:44", audioUrl: "/audio/goodluckcharm.mpeg" }
+      { id: 1, title: "Dooron Dooron", artist: "Paresh / Smooth Vibes", albumArt: "/photos/photo12.jpeg", duration: "3:42", audioUrl: "/audio/dooron.mp3" },
+      { id: 2, title: "Bairan", artist: "Banjare", albumArt: "/photos/photo27.jpeg", duration: "5:23", audioUrl: "/audio/bairan.mp3" },
+      { id: 3, title: "good luck charm", artist: "Ali Sethi, Shae Gill", albumArt: "/photos/photo10.jpeg", duration: "3:44", audioUrl: "/audio/goodluckcharm.mp3" }
+    ]
+  },albumArt: "/photos/photo10.jpeg", duration: "3:44", audioUrl: "/audio/goodluckcharm.mpeg" }
       //{ id: 4, title: "Kesariya", artist: "Arijit Singh", albumArt: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=300&q=80", duration: "4:28" },
       //{ id: 5, title: "harriya", artist: "One Direction", albumArt: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=300&q=80", duration: "3:46" },
       // { id: 6, title: "Apna Bana Le", artist: "Arijit Singh", albumArt: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=300&q=80", duration: "4:21" },
@@ -312,7 +312,7 @@ export const initialBirthdayData = {
 
   // Page 13: Meri Kitab: Ek Mulakat
   meriKitab: {
-    bgMusicUrl: "/audio/humarimulakat.mpeg",
+    bgMusicUrl: "/audio/humarimulakat.mp3",
     firstPhotoUrl: "/photos/photo2.jpeg",
     firstMeetingLocation: "Humari Mulakat Maa Kalaka Ji ke aashirwad se suru hui ❤️! ",
 
@@ -322,15 +322,15 @@ export const initialBirthdayData = {
       {
         heading: "1. The Movie Date and Begining of our Story.",
         text: "Humari First date or movie so Vj mai bhot exited tha humari first date Ko Lekr its 1 Aug and its Girlfriend's day , mai bhot acche se janta tha or isi din mne ye date bhi chuni, jab mai tumhe pickup krne aaya vj to mai bhot nervous tha and jab tum samne aai to ek dum pari lgri thi beautiful and slaying up photo mai dekho, i know ki movie tumhe pasand bhi nhi aai but tumhara sath rehna hi mere liye impt. tha , And During Movie when i ask to hold your hand and you allowed it wo meri life ka bhot impt moment tha, uske bad we had your fav MOMO and there i gave you my First Gift to you That Floral Neckles or jab mne use tumhe apne hath se pehnaya na mai aasman p tha VJ or tumhe dil de betha.",
-        audioUrl: "/audio/note1.mpeg", // Chapter 1 audio file path (e.g. "/audio/movie-date-audio.mp3")
+        audioUrl: "/audio/note1.mp3", // Chapter 1 audio file path (e.g. "/audio/movie-date-audio.mp3")
         imageUrls: [
           "/photos/movie.jpeg"
         ]
       },
       {
         heading: "Ma Kalka Ji ke Darshan",
-        text: "Vj This was our second trip and we planed for Kalkaji you know right on 15 Th Aug, i asked you to just a long drive and on morning you surprise me by saying 'Rahul hum kalka ji ja rahe h' and ye bat mere bhi man mai thi cutu, ki mai tumse bolu ki kalkaji mujhe bhi le chlo , or jab tum ready hoke aai to by god You are Looking Gorgeous or upr se mere gift kie hue jhumke and chudiya pehni thi mera to dil hi aagya tha, phir jab hum udhr pahuche and tumhare sath us road pe chalna line mai lagna 3-4 ghante m darshan krna best memory for me VJ, you know best past was jab wo ladki tumhe dekh kr tumhari nazar utarti h , its awsome pta h cutu m tumhari hair fragrence ka fan usi din hogya i litrally enjoy that fragrance for straignt 4 hours and u know mne tumhe 2-3 bar head p kis bhi kia, baki mandir m tumhe bheed se protect krna mere liye memorable tha, sabse imp bat vj, humne jo shivji p jal chadhaya and nandi ko wish bolo it gave me goosebumps, ye mera best Experience tha kalkaji ka, In future i hope hum harbar ase hi jaye. or Cutu best part was jab mne gadi roki or Tumhare balo m flowers Lagaye and tumhe ek flower ki ring pehnai wo mere liye best moment tha and first time i Kiss you ",
-        audioUrl: "/audio/note1.mpeg", // Chapter 2 audio file path
+        text: "Vj This was our second trip and we planed for Kalkaji you know right on 15 Th Aug, i asked you to just a long drive and on morning you surprise me by saying 'Rahul hum kalka ji ja rahe h' and ye bat mere bhi man mai thi cutu, ki mai tumse bolu ki kalkaji mujhe bhi le chlo , or jab tum ready hoke aai to by god You are Looking Gorgeous or upr se mere gift kie hue jhumke and chudiya pehni thi mera to dil hi aagya tha, phir jab hum udhr pahuche and tumhare sath us road pe chalna line mai lagna 3-4 ghante m darshan krna best memory for me VJ, you know best past was jab wo ladki tumhe dekh kr tumhari nazar utarti h , its awsome pta h cutu m tumhari hair fragrence ka fan usi din hogya i litrally enjoy that fragrance for straignt 4 hours and u know mne tumhe 2-3 bar head p kis bhi kia, baki mandir m tumhe bheed se protect krna mere lifting memorable tha, sabse imp bat vj, humne jo shivji p jal chadhaya and nandi ko wish bolo it gave me goosebumps, ye mera best Experience tha kalkaji ka, In future i hope hum harbar ase hi jaye. or Cutu best part was jab mne gadi roki or Tumhare balo m flowers Lagaye and tumhe ek flower ki ring pehnai wo mere liye best moment tha and first time i Kiss you ",
+        audioUrl: "/audio/note1.mp3", // Chapter 2 audio file path
         imageUrls: [
           "/photos/photo2.jpeg",
           "/photos/photo3.jpeg",

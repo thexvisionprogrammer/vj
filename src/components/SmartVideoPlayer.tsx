@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Play, Maximize2, Minimize2 } from 'lucide-react';
-import { unlockIOSAudio } from '../utils/iosAudioUnlock';
+import { unlockIOSAudio, safePlayMedia } from '../utils/iosAudioUnlock';
 
 interface SmartVideoPlayerProps {
   src: string;
@@ -73,10 +73,7 @@ export const SmartVideoPlayer: React.FC<SmartVideoPlayerProps> = ({
     if (videoRef.current) {
       if (videoRef.current.paused) {
         videoRef.current.muted = muted;
-        const playPromise = videoRef.current.play();
-        if (playPromise !== undefined) {
-          playPromise.catch((err) => console.error("Video play error on iOS:", err));
-        }
+        safePlayMedia(videoRef.current).catch((err) => console.error("Video play error on iOS:", err));
       } else {
         videoRef.current.pause();
       }

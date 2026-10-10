@@ -3,12 +3,11 @@
  * This helper listens for user interaction (tap/click/touch) and unlocks audio playback on iOS devices.
  */
 let isUnlocked = false;
+let globalAudioCtx: AudioContext | null = null;
 
-export const unlockIOSAudio = () => {
-  if (isUnlocked || typeof window === 'undefined') return;
-
-  const unlock = () => {
-    // 1. Resume Web Audio AudioContext if available
+export const getSharedAudioContext = (): AudioContext | null => {
+  if (typeof window === 'undefined') return null;
+  if (!globalAudioCtx) {
     const windowWithContext = window as unknown as {
       AudioContext?: typeof AudioContext;
       webkitAudioContext?: typeof AudioContext;
@@ -16,45 +15,106 @@ export const unlockIOSAudio = () => {
     const AudioContextClass = windowWithContext.AudioContext || windowWithContext.webkitAudioContext;
     if (AudioContextClass) {
       try {
-        const ctx = new AudioContextClass();
-        if (ctx.state === 'suspended') {
-          ctx.resume();
-        }
-        const buffer = ctx.createBuffer(1, 1, 22050);
-        const source = ctx.createBufferSource();
+        globalAudioCtx = new AudioContextClass();
+      } catch (e) {
+        console.warn("Failed to create AudioContext:", e);
+      }
+    }
+  }
+  return globalAudioCtx;
+};
+
+export const unlockIOSAudio = () => {
+  if (typeof window === 'undefined') return;
+
+  const ctx = getSharedAudioContext();
+  if (ctx && ctx.state === 'suspended') {
+    ctx.resume().catch(() => {});
+  }
+
+  if (isUnlocked) return;
+
+  const unlock = () => {
+    // 1. Resume Web Audio AudioContext
+    const activeCtx = getSharedAudioContext();
+    if (activeCtx) {
+      if (activeCtx.state === 'suspended') {
+        activeCtx.resume().catch(() => {});
+      }
+      try {
+        const buffer = activeCtx.createBuffer(1, 1, 22050);
+        const source = activeCtx.createBufferSource();
         source.buffer = buffer;
-        source.connect(ctx.destination);
+        source.connect(activeCtx.destination);
         source.start(0);
       } catch (e) {
-        console.warn("iOS AudioContext unlock warning:", e);
+        // Ignore
       }
     }
 
-    // 2. Play and pause dummy silent HTML5 Audio element
+    // 2. Play silent dummy HTML5 audio to unlock media playback engine
     try {
       const dummyAudio = new Audio();
       dummyAudio.src = 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA';
       dummyAudio.setAttribute('playsinline', 'true');
       dummyAudio.setAttribute('webkit-playsinline', 'true');
-      dummyAudio.play().then(() => {
-        dummyAudio.pause();
-        dummyAudio.remove();
-      }).catch(() => {});
+      const p = dummyAudio.play();
+      if (p !== undefined) {
+        p.then(() => {
+          dummyAudio.pause();
+          dummyAudio.remove();
+        }).catch(() => {});
+      }
     } catch (e) {
       // Ignore
     }
 
     isUnlocked = true;
-
-    // Remove listeners once unlocked
-    window.removeEventListener('touchstart', unlock, true);
-    window.removeEventListener('touchend', unlock, true);
-    window.removeEventListener('click', unlock, true);
-    window.removeEventListener('pointerdown', unlock, true);
   };
 
-  window.addEventListener('touchstart', unlock, true);
-  window.addEventListener('touchend', unlock, true);
-  window.addEventListener('click', unlock, true);
-  window.addEventListener('pointerdown', unlock, true);
+  // Run unlock immediately if called within a user gesture handler
+  unlock();
+
+  // Also bind passive listeners to catch the very first tap
+  window.addEventListener('touchstart', unlock, { capture: true, once: true });
+  window.addEventListener('touchend', unlock, { capture: true, once: true });
+  window.addEventListener('click', unlock, { capture: true, once: true });
+  window.addEventListener('pointerdown', unlock, { capture: true, once: true });
 };
+
+/**
+ * Safe play helper for HTML5 Audio/Video elements on iOS & desktop.
+ * Handles autoplay rejections gracefully and retries automatically on the next user interaction.
+ */
+export const safePlayMedia = (media: HTMLMediaElement): Promise<void> => {
+  unlockIOSAudio();
+  if (!media) return Promise.reject(new Error("Media element is null"));
+
+  const playPromise = media.play();
+  if (playPromise !== undefined) {
+    return playPromise.catch((err) => {
+      console.warn("Media playback deferred for user interaction on iOS:", err);
+      return new Promise<void>((resolve) => {
+        const handleInteraction = () => {
+          unlockIOSAudio();
+          media.play()
+            .then(() => resolve())
+            .catch(() => resolve());
+          window.removeEventListener('touchstart', handleInteraction, true);
+          window.removeEventListener('touchend', handleInteraction, true);
+          window.removeEventListener('click', handleInteraction, true);
+        };
+        window.addEventListener('touchstart', handleInteraction, true);
+        window.addEventListener('touchend', handleInteraction, true);
+        window.addEventListener('click', handleInteraction, true);
+      });
+    });
+  }
+  return Promise.resolve();
+};
+
+// Auto-initialize unlock listeners when script is loaded on client
+if (typeof window !== 'undefined') {
+  unlockIOSAudio();
+}
+
